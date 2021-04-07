@@ -21,6 +21,12 @@ class HomeListView(ListView):
     context_object_name = 'list_articles'
 
 
+class ForumListView(ListView):
+    model = Articles
+    template_name = 'index.html'
+    context_object_name = 'list_articles'
+
+
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""
 #     def dispatch(self, request, *args, **kwargs):
@@ -109,8 +115,7 @@ class ArticleCreateView(LoginRequiredMixin, CustomSuccessMessageMixin, CreateVie
         self.object.author = self.request.user
         self.object.save()
         return super().form_valid(form)
-    
-    
+
 
 class ArticleUpdateView(LoginRequiredMixin, CustomSuccessMessageMixin,UpdateView):
     model = Articles

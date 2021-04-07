@@ -19,13 +19,18 @@ src: url("9533.ttf");
 	
 
 }
-
-.bolder_1 {
+.nav-item-br1{
+position: absolute;
+left:40px;
+margin:auto;
+top:10px;
+}
+.bolder_ {
 	position: absolute;
 	width: 978.76px;
 	height: 110.77px;
 	left: 177.8px;
-	top: 117.95px;
+	top: 147.95px;
 	border: 1px solid #c4c4c4;
 	background: #fff;
 }
@@ -269,7 +274,7 @@ src: url("9533.ttf");
 .openbtn {
 	font-size: 20px;
 	cursor: pointer;
-	margin-top: 0px;
+	margin-top: 20px;
 	top: 400px;
 	left:20px;
 	background-color: #585858;
