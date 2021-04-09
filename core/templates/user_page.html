@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu_style.css' %}" />
+
+    <title>User page</title>
+</head>
+
+<body>
+
+    {% include 'index.html' %}
+    <div class="container">
+        {% if isOwner %}
+        <h6 class="hi"> Hello, {{ username }} </h6>
+        {% else %}
+        <h6 class="hi"> {{ username }}'s page </h6>
+        {% endif %}
+        <div class="main">
+            <div class="row">
+                <div class="info col-lg-auto">
+                    {% if isOwner %}
+                    <div class="name_head">
+                        <h7 style="font-size: xx-large;">Your info</h7>
+                    </div>
+                    {% else %}
+                    <div class="name_head">
+                        <h7 style="font-size: xx-large;">Info</h7>
+                    </div>
+                    {% endif %}
+                    <div class="info_out" style=""><span style="padding-right: 1rem;">Login</span> <span
+                            class="out">{{username}}</span></div>
+                    <div class="info_out" style=""><span style="padding-right: 1rem;">Email</span> <span
+                            class="out">{{email}}</span></div>
+                    {% if isOwner %}
+                    <div class="info_out" style=""> <span style="padding-right: 1rem;">Email confirmation
+                            status:</span>
+                        <span class="out">{{ userProperties.email_verified }}</span></div>
+                    {% if not userProperties.email_verified %}
+                    <div class="info_out" style=""> <span style="padding-right: 1rem;"> Want to verify your
+                            email?</span><span class="out"> <a href="{% url 'user_register_email_confirm' %}">Confirm
+                                it</a> </span></div>
+                    {% endif %}
+                    <div class="btn_info"><a class="btn btn-primary" href="{% url 'user_change' %}">Change
+                            password</a>
+                        <a class="btn btn-primary" href="{% url 'user_logout' %}" style="margin-left: 1rem;">Log
+                            out</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="surv col-lg-auto">
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                    <div class="title_surv">
+                        <h7>Your surveys</h7>
+                    </div>
+                    <h10> </h10>
+                    <div>
+                    </div>
+                    <div style="display: block; padding-top: 1rem; flex-direction: row;">
+                        {% for survey, participants in surveys %}
+                        <ul class="info col-lg-auto" style="text-align: center; justify-content: center; float: none; padding: 1rem;">
+                            <div class="name_head">
+                                <li>
+                                    <h10><a href="{% url 'survey_pass'%}?survey={{survey.url}}">{{survey.title}}</a>
+                                    </h10>
+                                </li>
+                            </div>
+                            <span class="out">
+                                <li >raiting: {{survey.rating}} Participated: {{participants}}</li>
+                            </span>
+                            <span class="out" style="margin-top: 1rem">
+                                <li>{{survey.description}}</li>
+                            </span>
+
+                        </ul>
+
+                        {% endfor %}
+
+
+                    </div>
+                    {% else %}
+                    <a href="{% url 'create_complaint' %}?user={{username}}"><input id="complain_btn" type="button"
+                            value="Complain"></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

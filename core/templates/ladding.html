@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8">
-<![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9">
-<![endif]-->
-<!--[if gt IE 8]>
-<!-->
 <html class="no-js">
 <!--<![endif]-->
 
@@ -19,27 +10,26 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
- 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
 	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 	<link rel="shortcut icon" href="{% static '%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.ico' %}" type="image/x-icon">
 </head>
 
-	<!--[if lt IE 7]>
+<!--[if lt IE 7]>
     <![endif]-->
 
-	</head>
+</head>
 
-	<body>
+<body>
+	<header>
 		<div class="fakeloader"></div>
-		<header>
-			<h1>Welcome to FastWiFi</h1>
-			<div id="mySidepanel" class="sidepanel">
+		<div id="mySidepanel" class="sidepanel">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<a href="login">Profile</a>
 			<a href="forum">Forums</a>
-			<a href="#">FAQ</a>
+			<a href="faq">FAQ</a>
 		</div>
 
 		<button class="openbtn" onclick="openNav()">&#9776;</button>
@@ -53,65 +43,49 @@
 			function closeNav() {
 				document.getElementById("mySidepanel").style.width = "0";
 			}
+
 		</script>
-		 <div class="container mt-4">
-          <ul class="nav nav-pills">
-  <li class="nav-item">
-      {% url 'home' as url_home %}
 
-    <a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
-  </li>
-  <li class="nav-item">
-      {% url 'edit_page' as url_edit_page %}
-    <a class="nav-link {% if url_edit_page == request.path %}active{% endif %}" href="{{url_edit_page}}">Создание/ред/удал</a>
-  </li>
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
 
-
-
-
-  {% if request.user.is_authenticated %}
-      <li class="nav-item">
-        {% url 'logout_page' as url_logout_page %}
-
-    <a class="nav-link btn-danger ml-5" href="{{url_logout_page}}">Выйти</a>
-  </li>
-  {% else %}
-    <li class="nav-item">
-        {% url 'login_page' as url_login_page %}
-    <a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
-  </li>
-    <li class="nav-item">
-        {% url 'register_page' as url_register_page %}
-
-    <a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
-  </li>
-
-  {% endif %}
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'edit_page' as url_edit_page %}
+					<a class="nav-link {% if url_edit_page == request.path %}active{% endif %}" href="{{url_edit_page}}">Создание/ред/удал</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
 
 
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
 
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
 
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
 
-
-
-
-{{request.user}}
-</ul>
-
-		<div class="">
-
-
+				{% endif %}
+				{{request.user}}
+			</ul>
 		</div>
 
-		</header>
-		<section id="section-navigation">
-
-			<div class="container text-center">
-			</div>
-		</section>
-		<div class="bolder_1"></div>
-
-
+		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
 		<script>
@@ -122,7 +96,19 @@
 					spinner: "spinner6"
 				});
 			});
+
 		</script>
-		<div class="fakeLoader"></div>
-	</body>
+	</header>
+	<main>
+<p style="text-align: center"><a class="nav-link" href="" style="color: green;">Начать</a>
+
+
+	</main>
+
+
+
+
+	<div class="fakeLoader"></div>
+</body>
+
 </html>

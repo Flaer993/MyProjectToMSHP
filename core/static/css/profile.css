@@ -1,0 +1,154 @@
+.gl{
+    display: block;
+    flex-direction: column;
+}
+
+.container {
+    display: block;
+    margin: 0px;
+    width: auto;
+    margin-left: 0px;
+    float: left;
+    justify-content: left;
+}
+
+.row {
+    display: block;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-right: 3rem;
+}
+
+.btn_info {
+    display: flex;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.name {
+    margin-left: 1rem;
+    color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    justify-content: left;
+    /*margin-top: 6rem;*/
+}
+
+.hi {
+    font-size: xx-large;
+    display: inline;
+    white-space: nowrap;
+    background-color: #2E8BC0;
+    border-radius: 20px;
+    padding: 1rem;
+    color: #ffffff;
+    margin-left: 6.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    float: left;
+
+}
+
+.info {
+    display: inline-flex;
+    background-color: #145DA0;
+    border-radius: 20px;
+    flex-direction: column;
+    color: #ffffff;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    float: left;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: x-large;
+}
+
+.infoA {
+    display: inline-flex;
+    background-color: #145DA0;
+    border-radius: 20px;
+    flex-direction: column;
+    color: #ffffff;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    float: left;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: x-large;
+}
+
+.name_head {
+    text-align: center;
+}
+
+.out {
+    color: black;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: auto;
+}
+
+.block_surv {
+    background-color: #145DA0;
+    color: #ffffff;
+}
+
+li {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 5px;
+    list-style-type: none;
+    padding: 3px;
+    list-style-type: none;
+}
+
+.info_out {
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.surv {
+    position: relative;
+    display: inline-block;
+    margin-left: 50%;
+    top: auto;
+
+}
+
+.title_surv {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #145DA0;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-left: 5rem;
+    margin-bottom: 5px;
+}
+
+.btn {
+    font-size: 2rem;
+    margin: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 20px;
+    background-color: #2E8BC0;
+    width: 50%;
+}
+.name_head{
+    margin-bottom: 1rem;
+}
+a{
+    color: white !important;
+}

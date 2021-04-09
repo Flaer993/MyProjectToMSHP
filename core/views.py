@@ -26,7 +26,10 @@ class ForumListView(ListView):
     template_name = 'index.html'
     context_object_name = 'list_articles'
 
-
+class FAQ(ListView):
+    model = Articles
+    template_name = 'faq.html'
+    context_object_name = 'list_articles'
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""
 #     def dispatch(self, request, *args, **kwargs):
@@ -173,6 +176,7 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
         success_url = self.get_success_url()
         self.object.delete()
         return HttpResponseRedirect(success_url)
+
 
 
 

@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="en">
+{%load static%}
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Main</title>
+<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
+    <title>Форумы</title>
   </head>
   <body>
-      
+     <div class="fakeloader"></div>
       
       <div class="container mt-4">
           <ul class="nav nav-pills">
@@ -23,7 +25,10 @@
       {% url 'edit_page' as url_edit_page %}
     <a class="nav-link {% if url_edit_page == request.path %}active{% endif %}" href="{{url_edit_page}}">Создание/ред/удал</a>
   </li>
-  
+ <li class="nav-item">
+      {% url 'forum' as url_forum %}
+    <a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+  </li>
   
   
   
@@ -92,7 +97,18 @@
 
 
 {% endblock %}
-    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+		</script>
+		<div class="fakeLoader"></div>
   </body>
 </html>
 

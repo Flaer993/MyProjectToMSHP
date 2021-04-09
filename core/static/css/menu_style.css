@@ -1,0 +1,39 @@
+body {
+    background-image: url(https://cdn.discordapp.com/attachments/757615949451886612/795411498847567912/SPOILER_water.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: large;
+}
+
+button {
+    border-radius: 10px;
+    color: white;
+    background-color: #145DA0;
+}
+
+a {
+    text-decoration: none
+}
+.nav-link{
+    color: #ffffff !important;
+}
+.navbar-dark {
+    background-color: #2E8BC0;
+    text-align: center;
+}
+
+.name {
+    text-align: center;
+    padding-right: 4rem;
+}
+
+.nav-item {
+    text-align: center;
+    background-color: #145DA0;
+    border-radius: 20px;
+    margin: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}

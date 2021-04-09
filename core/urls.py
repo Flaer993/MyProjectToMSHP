@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 
+
+
 urlpatterns = [
     path('', views.HomeListView.as_view(), name='home'),
     path('detail/<int:pk>', views.HomeDetailView.as_view(), name='detail_page'),
@@ -27,6 +29,7 @@ urlpatterns = [
     path('register', views.RegisterUserView.as_view(), name='register_page'),
     path('logout', views.MyProjectLogout.as_view(), name='logout_page'),
     path('forum', views.ForumListView.as_view(), name='forum'),
+    path('faq', views.FAQ.as_view(), name='faq'),
     
     #ajax
     path('update_comment_status/<int:pk>/<slug:type>', views.update_comment_status, name='update_comment_status')
