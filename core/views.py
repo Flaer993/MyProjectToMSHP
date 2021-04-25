@@ -36,6 +36,12 @@ class FAQ(ListView):
     context_object_name = 'list_articles'
 
 #Instructions
+class instr(ListView):
+    model = Articles
+    template_name = 'instructions/pre_instr.html'
+    context_object_name = 'list_articles'
+
+
 class ASUS(ListView):
     model = Articles
     template_name = 'instructions/asus.html'

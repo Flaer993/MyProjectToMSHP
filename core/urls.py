@@ -32,7 +32,7 @@ urlpatterns = [
     path('forum', views.ForumListView.as_view(), name='forum'),
     path('faq', views.FAQ.as_view(), name='faq'),
     #Insructions
-
+    path('instr', views.instr.as_view(), name='start_inst'),
     path('asus', views.ASUS.as_view(), name='asus'),
     path('tp-link', views.tplink.as_view(), name='tp-link'),
     path('xiaomi', views.xiaomi.as_view(), name='xiaomi'),

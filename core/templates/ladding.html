@@ -14,7 +14,6 @@
 
 	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
 	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
-	<link rel="shortcut icon" href="{% static '%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.ico' %}" type="image/x-icon">
 </head>
 
 <!--[if lt IE 7]>
@@ -100,8 +99,8 @@
 		</script>
 	</header>
 	<main>
-		{% url 'asus' as url_asus %}
-<p style="text-align: center"><a class="nav-link {% if url_asus == request.path %}active{% endif %}" href="{{url_asus}}">Начать</a>
+		{% url 'start_inst' as url_start_1 %}
+<p style="text-align: center"><a class="nav-link {% if url_start_1 == request.path %}active{% endif %}" href="{{url_start_1}}">Начать</a>
 
 
 	</main>
