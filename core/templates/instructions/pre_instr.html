@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
-    body>
 	<header>
 		<div class="fakeloader"></div>
 		<div id="mySidepanel" class="sidepanel">
@@ -92,6 +91,136 @@
 
 		</script>
 	</header>
+<style>
+
+.bulgy-radios {
+  width: 38rem;
+  background: #fff;
+  padding: 3rem 0 3rem 5rem;
+  border-radius: 1rem;
+
+  label {
+    display: block;
+    position: relative;
+    height: 1em;
+    padding-left: 4rem;
+    margin-bottom: 1.75rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    user-select: none;
+    color: #555;
+    letter-spacing: 1px;
+    &:hover input:not(:checked) ~ .radio {
+      opacity: 0.8;
+    }
+  }
+  .label {
+    display: flex;
+    align-items: center;
+    padding-right: 3rem;
+    span {
+      line-height: 1em;
+    }
+  }
+  input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    left: -2000px;
+
+    &:checked {
+      ~ .radio {
+        background-color: #0ac07d;
+        transition: background .3s;
+        &::after {
+          opacity: 1;
+        }
+      }
+      ~ .label {
+        color: #0bae72;
+        span {
+          animation: bulge .5s forwards;
+        }
+
+        //adjust this if label is going to be more than 20 chars
+        @for $i from 1 to 20 {
+          span:nth-child(#{$i}) { animation-delay: $i * 0.025s; }
+        }
+      }
+    }
+  }
+}
+</style>
+    <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+  <h2 id="bulgy-radios-label">Насколько вы знакомы роутерами?</h2>
+  <label>
+    <input type="radio" name="userExperienceOptions" checked />
+    <span class="radio"></span>
+    <span class="label">Отлично (часто настраиваю)</span>
+  </label>
+  <label>
+    <input type="radio" name="userExperienceOptions" />
+    <span class="radio"></span>
+      <span class="label">Нормально (пару раз настривал)</span>
+  </label>
+  <label>
+    <input type="radio" name="userExperienceOptions" />
+    <span class="radio"></span>
+    <span class="label">Плохо (никогда не имел дела с роутерами)</span>
+  </label>
+</div>
+
+<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+  <h2 id="bulgy-radios-label">Select an option</h2>
+  <label>
+    <input type="radio" name="routerNameOptions" checked />
+    <span class="radio"></span>
+    <span class="label">Asus</span>
+  </label>
+  <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+      <span class="label">Huawei</span>
+  </label>
+  <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Keenetic</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">MGTS</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Microtik</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Netis</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Rostelecom</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Tp-Link</span>
+  </label>
+    <label>
+    <input type="radio" name="routerNameOptions" />
+    <span class="radio"></span>
+    <span class="label">Xiaomi</span>
+  </label>
+
+</div>
+    <input type="submit" value="Подтвердить">
 
 </body>
 </html>
