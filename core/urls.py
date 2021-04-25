@@ -20,6 +20,7 @@ from core import views
 
 
 urlpatterns = [
+    #core
     path('', views.HomeListView.as_view(), name='home'),
     path('detail/<int:pk>', views.HomeDetailView.as_view(), name='detail_page'),
     path('edit-page', views.ArticleCreateView.as_view(), name='edit_page'),
@@ -30,7 +31,17 @@ urlpatterns = [
     path('logout', views.MyProjectLogout.as_view(), name='logout_page'),
     path('forum', views.ForumListView.as_view(), name='forum'),
     path('faq', views.FAQ.as_view(), name='faq'),
-    
+    #Insructions
+
+    path('asus', views.ASUS.as_view(), name='asus'),
+    path('tp-link', views.tplink.as_view(), name='tp-link'),
+    path('xiaomi', views.xiaomi.as_view(), name='xiaomi'),
+    path('mgts', views.mgts.as_view(), name='mgts'),
+    path('rosteleckom', views.tplink.as_view(), name='rosteleckom'),
+    path('netis', views.tplink.as_view(), name='netis'),
+    path('keenetic', views.keenetic.as_view(), name='keenetic'),
+    path('hyawei', views.hyawei.as_view(), name='hyawei'),
+    path('mickrotik', views.tplink.as_view(), name='mickrotik'),
     #ajax
     path('update_comment_status/<int:pk>/<slug:type>', views.update_comment_status, name='update_comment_status')
 

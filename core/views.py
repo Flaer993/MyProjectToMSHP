@@ -11,8 +11,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
+from . import views
 
 from django.template import Context, Template
+
+
 
 
 class HomeListView(ListView):
@@ -32,7 +35,41 @@ class FAQ(ListView):
     template_name = 'faq.html'
     context_object_name = 'list_articles'
 
+#Instructions
+class ASUS(ListView):
+    model = Articles
+    template_name = 'instructions/asus.html'
+    context_object_name = 'list_articles'
 
+
+class tplink(ListView):
+    model = Articles
+    template_name = 'instructions/tp-link.html'
+    context_object_name = 'list_articles'
+
+
+class xiaomi(ListView):
+    model = Articles
+    template_name = 'instructions/xiaomi.html'
+    context_object_name = 'list_articles'
+
+
+class mgts(ListView):
+    model = Articles
+    template_name = 'instructions/mgts.html'
+    context_object_name = 'list_articles'
+
+
+class keenetic(ListView):
+    model = Articles
+    template_name = 'instructions/keenetic.html'
+    context_object_name = 'list_articles'
+
+
+class hyawei(ListView):
+    model = Articles
+    template_name = 'instructions/hyawei.html'
+    context_object_name = 'list_articles'
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""
 #     def dispatch(self, request, *args, **kwargs):

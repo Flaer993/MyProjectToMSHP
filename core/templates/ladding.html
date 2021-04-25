@@ -100,7 +100,8 @@
 		</script>
 	</header>
 	<main>
-<p style="text-align: center"><a class="nav-link" href="" style="color: green;">Начать</a>
+		{% url 'asus' as url_asus %}
+<p style="text-align: center"><a class="nav-link {% if url_asus == request.path %}active{% endif %}" href="{{url_asus}}">Начать</a>
 
 
 	</main>
