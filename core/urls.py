@@ -31,6 +31,7 @@ urlpatterns = [
     path('logout', views.MyProjectLogout.as_view(), name='logout_page'),
     path('forum', views.ForumListView.as_view(), name='forum'),
     path('faq', views.FAQ.as_view(), name='faq'),
+    path('usr', views.UserListView.as_view(), name='usr'),
     #Insructions
     path('instr', views.instr.as_view(), name='start_inst'),
     path('asus', views.ASUS.as_view(), name='asus'),

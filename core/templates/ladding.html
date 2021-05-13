@@ -26,7 +26,7 @@
 		<div class="fakeloader"></div>
 		<div id="mySidepanel" class="sidepanel">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="login">Profile</a>
+			<a href="usr">Profile</a>
 			<a href="forum">Forums</a>
 			<a href="faq">FAQ</a>
 		</div>
@@ -99,11 +99,36 @@
 		</script>
 	</header>
 	<main>
+		<style>
+			.btn {
+			 display: inline-block; /* Строчно-блочный элемент */
+			 background: #007bff; /* Серый цвет фона */
+			 color: #fff; /* Белый цвет текста */
+			 padding: 1rem 1.5rem; /* Поля вокруг текста */
+			 text-decoration: none; /* Убираем подчёркивание */
+			 border-radius: 3px; /* Скругляем уголки */
+			 left: 960px;
+			 top: 420px;
+			}
+		   </style>
+		   <div>
 		{% url 'start_inst' as url_start_1 %}
-<p style="text-align: center"><a class="nav-link {% if url_start_1 == request.path %}active{% endif %}" href="{{url_start_1}}">Начать</a>
 
+		<a class="btn {% if url_start_1 == request.path %}active{% endif %}" href="{{url_start_1}}">Начнем</a>
+		</div>
+		<div class="news1">
 
+		</div>
+		<div class="news2">
+
+		</div>
+		<div class="news3">
+
+		</div>
 	</main>
+	<footer>
+
+	</footer>
 
 
 

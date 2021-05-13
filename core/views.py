@@ -22,7 +22,10 @@ class HomeListView(ListView):
     model = Articles
     template_name = 'ladding.html'
     context_object_name = 'list_articles'
-
+class UserListView(ListView):
+    model = Articles
+    template_name = 'user_page.html'
+    context_object_name = 'list_articles'
 
 class ForumListView(ListView):
     model = Articles
@@ -70,7 +73,14 @@ class keenetic(ListView):
     model = Articles
     template_name = 'instructions/keenetic.html'
     context_object_name = 'list_articles'
-
+class netis(ListView):
+    model = Articles
+    template_name = 'instructions/netis.html'
+    context_object_name = 'list_articles'
+class micro(ListView):
+    model = Articles
+    template_name = 'instructions/keenetic.html'
+    context_object_name = 'list_articles'
 
 class hyawei(ListView):
     model = Articles
