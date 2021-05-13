@@ -217,6 +217,7 @@ class RegisterUserView(CreateView):
         return form_valid
 
 
+
 class MyProjectLogout(LogoutView):
     next_page = reverse_lazy('edit_page')
 
