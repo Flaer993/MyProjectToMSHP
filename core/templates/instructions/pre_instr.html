@@ -74,6 +74,7 @@
 
 				{% endif %}
 				{{request.user}}
+        <li class="nav-item"><h2>Пройдите опрос)</h2></li>
 			</ul>
 		</div>
 
@@ -97,6 +98,10 @@
   background: #fff;
   padding: 3rem 0 3rem 5rem;
   border-radius: 1rem;
+  border-style: solid 1px;
+  border-color:#007bff ;
+  margin-left: 700px;
+  
 
   label {
     display: block;
@@ -172,54 +177,26 @@
 
 <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
   <h2 id="bulgy-radios-label">Выберите своё устройство</h2>
-  <label>
-    <input type="radio" name="routerNameOptions" checked />
-    <span class="radio"></span>
-    <span class="label">Asus</span>
-  </label>
-  <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-      <span class="label">Huawei</span>
-  </label>
-  <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Keenetic</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">MGTS</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Microtik</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Netis</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Rostelecom</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Tp-Link</span>
-  </label>
-    <label>
-    <input type="radio" name="routerNameOptions" />
-    <span class="radio"></span>
-    <span class="label">Xiaomi</span>
-  </label>
+  <select id="selectvalue">
+
+    <option>MGTS</option>
+    
+    <option>ASUS</option>
+    
+    <option>Keenetic</option>
+    
+    <option>Netis</option>
+    
+    <option>Rostelecom</option>
+    <option>Mikro-Tik</option>
+    <option>Hyawei</option>
+    <option>TP-Link</option>
+    <option>Xiaomi</option>
+    
+    </select>
 
 </div>
-    <input type="submit" value="Подтвердить">
+    <input type="submit" value="Подтвердить" class='btn'><a href=""></a>
 
 </body>
 </html>

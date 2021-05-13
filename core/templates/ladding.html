@@ -99,25 +99,13 @@
 		</script>
 	</header>
 	<main>
-		<style>
-			.btn {
-			 display: inline-block; /* Строчно-блочный элемент */
-			 background: #007bff; /* Серый цвет фона */
-			 color: #fff; /* Белый цвет текста */
-			 padding: 1rem 1.5rem; /* Поля вокруг текста */
-			 text-decoration: none; /* Убираем подчёркивание */
-			 border-radius: 3px; /* Скругляем уголки */
-			 left: 960px;
-			 top: 420px;
-			}
-		   </style>
 		   <div>
 		{% url 'start_inst' as url_start_1 %}
 
 		<a class="btn {% if url_start_1 == request.path %}active{% endif %}" href="{{url_start_1}}">Начнем</a>
 		</div>
 		<div class="news1">
-
+<h2>First update</h2>
 		</div>
 		<div class="news2">
 

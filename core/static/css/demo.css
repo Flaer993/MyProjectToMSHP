@@ -1,9 +1,30 @@
 
+
+
 #section-navigation {
 	position: relative;
 	margin-top: 100px;
 }
-
+.selector1{
+	width: 300px;
+	height: 400px;
+	border-style: solid 1px;
+	border-color: #007bff;
+	margin-left:960px;
+}
+.btn {
+	display: inline-block; /* Строчно-блочный элемент */
+	background: #007bff; /* Серый цвет фона */
+	color: #fff; /* Белый цвет текста */
+	padding: 1rem 1.5rem; /* Поля вокруг текста */
+	text-decoration: none; /* Убираем подчёркивание */
+	border-radius: 3px; /* Скругляем уголки */
+	left: 960px;
+	top: 420px;
+	text-decoration: none;
+	margin-left:960px;
+   }
+   
 .h1_1 {
 	font-family: 'Play';
 	margin-top: -1px;
@@ -20,13 +41,37 @@ main{
 	position: center;
 }
 .news1{
-
+width: 260px;
+height: 440px;
+left:200px;
+border-style: solid;
+border-color: #007bff;
+padding: 5px;
+margin-left: 320px;
+margin-top: 320px;
+text-align: center;
 }
 .news2{
-
+	width: 260px;
+	height: 440px;
+	left:200px;
+	border-style: solid;
+	border-color: #007bff;
+	padding: 5px;
+	margin-left: 880px;
+	margin-top: -440px;
+	text-align: center;
 }
 .news3{
-	
+	width: 260px;
+	height: 440px;
+	left:200px;
+	border-style: solid;
+	border-color: #007bff;
+	padding: 5px;
+	margin-left: 1420px;
+	margin-top: -440px;
+	text-align: center;
 }
 .cl_border {
 	width: 280px;
