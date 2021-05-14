@@ -53,10 +53,6 @@
 					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
 				</li>
 				<li class="nav-item">
-					{% url 'edit_page' as url_edit_page %}
-					<a class="nav-link {% if url_edit_page == request.path %}active{% endif %}" href="{{url_edit_page}}">Создание/ред/удал</a>
-				</li>
-				<li class="nav-item">
 					{% url 'forum' as url_forum %}
 					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
 				</li>
@@ -105,7 +101,11 @@
 		<a class="btn {% if url_start_1 == request.path %}active{% endif %}" href="{{url_start_1}}">Начнем</a>
 		</div>
 		<div class="news1">
-<h2>First update</h2>
+<h2>Сарт сайта FastWiFi</h2>
+<h4>Наш проект наконец стартовал.<br>
+Множество функций в вашем распорежении.<br>
+Мы продолжаем развиваться, так что о каких либо багах пишите на форум) </h4>
+
 		</div>
 		<div class="news2">
 

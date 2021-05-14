@@ -45,10 +45,7 @@
 
 					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
 				</li>
-				<li class="nav-item">
-					{% url 'edit_page' as url_edit_page %}
-					<a class="nav-link {% if url_edit_page == request.path %}active{% endif %}" href="{{url_edit_page}}">Создание/ред/удал</a>
-				</li>
+				
 				<li class="nav-item">
 					{% url 'forum' as url_forum %}
 					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
@@ -74,8 +71,9 @@
 
 				{% endif %}
 				{{request.user}}
-        <li class="nav-item"><h2>Пройдите опрос)</h2></li>
+        
 			</ul>
+      <h2>Пройдите пожалуйста опрос</h2>
 		</div>
 
 		</div>
@@ -98,9 +96,11 @@
   background: #fff;
   padding: 3rem 0 3rem 5rem;
   border-radius: 1rem;
-  border-style: solid 1px;
+  border-style: solid;
   border-color:#007bff ;
-  margin-left: 700px;
+  margin-left: 730px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   
 
   label {
@@ -180,13 +180,9 @@
   <select id="selectvalue">
 
     <option>MGTS</option>
-    
     <option>ASUS</option>
-    
     <option>Keenetic</option>
-    
     <option>Netis</option>
-    
     <option>Rostelecom</option>
     <option>Mikro-Tik</option>
     <option>Hyawei</option>

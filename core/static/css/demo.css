@@ -12,17 +12,19 @@
 	border-color: #007bff;
 	margin-left:960px;
 }
-.btn {
+.btn1 {
 	display: inline-block; /* Строчно-блочный элемент */
 	background: #007bff; /* Серый цвет фона */
 	color: #fff; /* Белый цвет текста */
 	padding: 1rem 1.5rem; /* Поля вокруг текста */
 	text-decoration: none; /* Убираем подчёркивание */
-	border-radius: 3px; /* Скругляем уголки */
+	border-radius: 30px; /* Скругляем уголки */
 	left: 960px;
 	top: 420px;
 	text-decoration: none;
 	margin-left:960px;
+	margin-top: 100px;
+	
    }
    
 .h1_1 {
