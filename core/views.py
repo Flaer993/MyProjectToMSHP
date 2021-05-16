@@ -79,12 +79,17 @@ class netis(ListView):
     context_object_name = 'list_articles'
 class micro(ListView):
     model = Articles
-    template_name = 'instructions/keenetic.html'
+    template_name = 'instructions/mickrotik.html'
     context_object_name = 'list_articles'
 
 class hyawei(ListView):
     model = Articles
     template_name = 'instructions/hyawei.html'
+    context_object_name = 'list_articles'
+
+class rostelecom(ListView):
+    model = Articles
+    template_name = 'instructions/rostelecom.html'
     context_object_name = 'list_articles'
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""

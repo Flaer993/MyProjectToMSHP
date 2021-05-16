@@ -38,11 +38,11 @@ urlpatterns = [
     path('tp-link', views.tplink.as_view(), name='tp-link'),
     path('xiaomi', views.xiaomi.as_view(), name='xiaomi'),
     path('mgts', views.mgts.as_view(), name='mgts'),
-    path('rosteleckom', views.tplink.as_view(), name='rosteleckom'),
-    path('netis', views.tplink.as_view(), name='netis'),
+    path('rosteleckom', views.rostelecom.as_view(), name='rosteleckom'),
+    path('netis', views.netis.as_view(), name='netis'),
     path('keenetic', views.keenetic.as_view(), name='keenetic'),
     path('hyawei', views.hyawei.as_view(), name='hyawei'),
-    path('mickrotik', views.tplink.as_view(), name='mickrotik'),
+    path('mickrotik', views.micro.as_view(), name='mickrotik'),
     #ajax
     path('update_comment_status/<int:pk>/<slug:type>', views.update_comment_status, name='update_comment_status')
 
