@@ -16,81 +16,203 @@ from . import views
 from django.template import Context, Template
 
 
-
-
 class HomeListView(ListView):
+    """
+    Главная страница
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'ladding.html'
     context_object_name = 'list_articles'
+
+
 class UserListView(ListView):
+    """
+    Страница профиля пользователя
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'user_page.html'
     context_object_name = 'list_articles'
 
+
 class ForumListView(ListView):
+    """
+    Страница формуа с обсуждениями
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'index.html'
     context_object_name = 'list_articles'
 
 
 class FAQ(ListView):
+    """
+    Страница FAQ (Frequently Asked Questions)
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'faq.html'
     context_object_name = 'list_articles'
 
-#Instructions
+
+# Instructions
 class instr(ListView):
+    """
+    Страница выбора инструкции
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/pre_instr.html'
     context_object_name = 'list_articles'
 
 
 class ASUS(ListView):
+    """
+    Страница инструкции Asus
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/asus.html'
     context_object_name = 'list_articles'
 
 
 class tplink(ListView):
+    """
+    Страница инструкции Tp-Link
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/tp-link.html'
     context_object_name = 'list_articles'
 
 
 class xiaomi(ListView):
+    """
+    Страница инструкции Xiaomi
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/xiaomi.html'
     context_object_name = 'list_articles'
 
 
 class mgts(ListView):
+    """
+    Страница инструкции МГТС
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/mgts.html'
     context_object_name = 'list_articles'
 
 
 class keenetic(ListView):
+    """
+    Страница инструкции Keenetic
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/keenetic.html'
     context_object_name = 'list_articles'
+
+
 class netis(ListView):
+    """
+    Страница инструкции Netis
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/netis.html'
     context_object_name = 'list_articles'
+
+
 class micro(ListView):
+    """
+    Страница инструкции Microtik
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/mickrotik.html'
     context_object_name = 'list_articles'
 
+
 class hyawei(ListView):
+    """
+    Страница инструкции Huawei
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/hyawei.html'
     context_object_name = 'list_articles'
 
+
 class rostelecom(ListView):
+    """
+    Страница инструкции Ростелекома
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    """
     model = Articles
     template_name = 'instructions/rostelecom.html'
     context_object_name = 'list_articles'
+
+
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""
 #     def dispatch(self, request, *args, **kwargs):
@@ -112,6 +234,16 @@ class CustomSuccessMessageMixin:
 
 
 class HomeDetailView(CustomSuccessMessageMixin, FormMixin, DetailView):
+    """
+    Главная страница (ф-ии)
+
+    :param model: используемая модель
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param context_object_name: название объекта
+    :param form_class: используемая форма
+    :param success_msg: сообщение для пользователя при опубликовании/обработке комментария
+    """
     model = Articles
     template_name = 'detail.html'
     context_object_name = 'get_article'
@@ -137,6 +269,11 @@ class HomeDetailView(CustomSuccessMessageMixin, FormMixin, DetailView):
 
 
 def update_comment_status(request, pk, type):
+    """
+    Функция обновления комментария
+
+    :param item: объект комментария
+    """
     item = Comments.objects.get(pk=pk)
     if request.user != item.article.author:
         return HttpResponse('deny')
@@ -161,6 +298,16 @@ def update_comment_status(request, pk, type):
 
 
 class ArticleCreateView(LoginRequiredMixin, CustomSuccessMessageMixin, CreateView):
+    """
+    Функция создания инструкции
+
+    :param login_url: URL при входе на страницу создания записи
+    :type model: :class:`django.contrib.auth.models.Articles`
+    :param template_name: название html шаблона
+    :param form_class: используемая форма
+    :param success_url: URL при успешном создании
+    :param success_msg: сообщение при успешном создании
+    """
     login_url = reverse_lazy('login_page')
     model = Articles
     template_name = 'edit_page.html'
@@ -180,6 +327,7 @@ class ArticleCreateView(LoginRequiredMixin, CustomSuccessMessageMixin, CreateVie
 
 
 class ArticleUpdateView(LoginRequiredMixin, CustomSuccessMessageMixin, UpdateView):
+    """"""
     model = Articles
     template_name = 'edit_page.html'
     form_class = ArticleForm
@@ -220,7 +368,6 @@ class RegisterUserView(CreateView):
         aut_user = authenticate(username=username, password=password)
         login(self.request, aut_user)
         return form_valid
-
 
 
 class MyProjectLogout(LogoutView):
