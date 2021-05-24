@@ -89,19 +89,16 @@
 
 		</script>
 	</header>
-	<main>
-		<h2>Насколько вы знакомы роутерами?</h2>
-		<div>
-			{% url 'hard' as url_hard %}
-	
-			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
-			{% url 'mid' as url_mid %}
-	
-			<a class="btn1 {% if url_mid == request.path %}active{% endif %}" href="{{url_mid}}">Упрощенный</a>
-			{% url 'low' as url_low %}
-	
-			<a class="btn1 {% if url_low == request.path %}active{% endif %}" href="{{url_low}}">Легкий</a>
-			</div>
+	<main> 	
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">Hyawei</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">Rostelecom</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">Netis</a>		
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">TP-Link</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/pLpunASElcY">Xioami</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/s9scLHL4ZIg">Asus</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://inetgu.ru/moskva/news/router-mgts-gpon-ip-adres-nastrojka.html">MGTS</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">Keenetic</a>
+			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="">MickroTick</a>
 	</main>
 
 </body>
