@@ -115,7 +115,19 @@
 <dl class="py class">
 <dt id="core.views.ArticleCreateView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">ArticleCreateView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.ArticleCreateView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Страница создания инструкции</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>login_url</strong> – URL при входе на страницу создания записи</p></li>
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>form_class</strong> – используемая форма</p></li>
+<li><p><strong>success_url</strong> – URL при успешном создании</p></li>
+<li><p><strong>success_msg</strong> – сообщение при успешном создании</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="core.views.ArticleCreateView.form_class">
 <code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#core.views.ArticleCreateView.form_class" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">core.forms.ArticleForm</span></code></p>
@@ -144,7 +156,17 @@
 <dl class="py class">
 <dt id="core.views.ArticleDeleteView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">ArticleDeleteView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.ArticleDeleteView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>Страница удаления инструкции</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>success_url</strong> – URL при успешном удалении</p></li>
+<li><p><strong>success_msg</strong> – сообщение при успешном удалении</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
 <dt id="core.views.ArticleDeleteView.delete">
 <code class="sig-name descname"><span class="pre">delete</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.ArticleDeleteView.delete" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Call the delete() method on the fetched object and then redirect to the
@@ -162,7 +184,18 @@ success URL.</p>
 <dl class="py class">
 <dt id="core.views.ArticleUpdateView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">ArticleUpdateView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.ArticleUpdateView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Страница обновления инструкции</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>form_class</strong> – используемая форма</p></li>
+<li><p><strong>success_url</strong> – URL при успешном обновлении</p></li>
+<li><p><strong>success_msg</strong> – сообщение при успешном обновлении</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="core.views.ArticleUpdateView.form_class">
 <code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#core.views.ArticleUpdateView.form_class" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">core.forms.ArticleForm</span></code></p>
@@ -231,9 +264,42 @@ success URL.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="core.views.Hard">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">Hard</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.Hard" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Страница инструкций сложного уровня понимания</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.Articles</span></code>) – используемая модель</p></li>
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>context_object_name</strong> – название объекта</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="core.views.Hard.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#core.views.Hard.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#core.models.Articles" title="core.models.Articles"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.models.Articles</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="core.views.HomeDetailView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">HomeDetailView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.HomeDetailView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Главная страница (ф-ии)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.Articles</span></code>) – используемая модель</p></li>
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>context_object_name</strong> – название объекта</p></li>
+<li><p><strong>form_class</strong> – используемая форма</p></li>
+<li><p><strong>success_msg</strong> – сообщение для пользователя при опубликовании/обработке комментария</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="core.views.HomeDetailView.form_class">
 <code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#core.views.HomeDetailView.form_class" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">core.forms.CommentForm</span></code></p>
@@ -281,14 +347,72 @@ success URL.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="core.views.Low">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">Low</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.Low" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Страница инструкций лёгкого уровня понимания</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.Articles</span></code>) – используемая модель</p></li>
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>context_object_name</strong> – название объекта</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="core.views.Low.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#core.views.Low.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#core.models.Articles" title="core.models.Articles"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.models.Articles</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="core.views.Mid">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">Mid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.Mid" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Страница инструкций среднего уровня понимания</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.Articles</span></code>) – используемая модель</p></li>
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>context_object_name</strong> – название объекта</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="core.views.Mid.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#core.views.Mid.model" title="Ссылка на это определение">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#core.models.Articles" title="core.models.Articles"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.models.Articles</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="core.views.MyProjectLogout">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">MyProjectLogout</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.MyProjectLogout" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Страница (кнопка) выхода из системы</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><p><strong>next_page</strong> – URL перенаправления</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py class">
 <dt id="core.views.MyprojectLoginView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">MyprojectLoginView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.MyprojectLoginView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Страница входа в систему</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>form_class</strong> – используемая форма</p></li>
+<li><p><strong>success_url</strong> – URL при успешном обновлении</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="core.views.MyprojectLoginView.form_class">
 <code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#core.views.MyprojectLoginView.form_class" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">core.forms.AuthUserForm</span></code></p>
@@ -305,7 +429,19 @@ success URL.</p>
 <dl class="py class">
 <dt id="core.views.RegisterUserView">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">RegisterUserView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.RegisterUserView" title="Ссылка на это определение">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Страница входа в систему</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template_name</strong> – название html шаблона</p></li>
+<li><p><strong>model</strong> – ForeignKey <cite>django.contrib.auth.models.User</cite></p></li>
+<li><p><strong>form_class</strong> – используемая форма <cite>RegisterUserForm</cite></p></li>
+<li><p><strong>success_url</strong> – URL при успешном создании пользователя</p></li>
+<li><p><strong>success_msg</strong> – сообщение при успешном создании пользователя</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
 <dt id="core.views.RegisterUserView.form_class">
 <code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#core.views.RegisterUserView.form_class" title="Ссылка на это определение">¶</a></dt>
 <dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">core.forms.RegisterUserForm</span></code></p>
@@ -473,27 +609,6 @@ success URL.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="core.views.rostelecom">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">rostelecom</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.rostelecom" title="Ссылка на это определение">¶</a></dt>
-<dd><p>Страница инструкции Ростелекома</p>
-<dl class="field-list simple">
-<dt class="field-odd">Параметры</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.models.Articles</span></code>) – используемая модель</p></li>
-<li><p><strong>template_name</strong> – название html шаблона</p></li>
-<li><p><strong>context_object_name</strong> – название объекта</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="core.views.rostelecom.model">
-<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#core.views.rostelecom.model" title="Ссылка на это определение">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#core.models.Articles" title="core.models.Articles"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.models.Articles</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt id="core.views.tplink">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">tplink</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.tplink" title="Ссылка на это определение">¶</a></dt>
 <dd><p>Страница инструкции Tp-Link</p>
@@ -512,6 +627,17 @@ success URL.</p>
 <dd><p>alias of <a class="reference internal" href="#core.models.Articles" title="core.models.Articles"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.models.Articles</span></code></a></p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt id="core.views.update_comment_status">
+<code class="sig-prename descclassname"><span class="pre">core.views.</span></code><code class="sig-name descname"><span class="pre">update_comment_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#core.views.update_comment_status" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Функция обновления комментария</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры</dt>
+<dd class="field-odd"><p><strong>item</strong> – объект комментария</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
