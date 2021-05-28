@@ -93,9 +93,7 @@
 		{% url 'hyaweiMid' as hyawie %}
 	
 			<a class="btn1 {% if hyawie == request.path %}active{% endif %}" href="{{hyawie}}">Hyawei</a>
-			{% url 'rostelecomMid' as rostelecom %}
-	
-			<a class="btn1 {% if rostelecom == request.path %}active{% endif %}" href="{{rostelecom}}">Rostelecom</a>
+			
 			{% url 'netisMid' as netis %}
 	
 			<a class="btn1 {% if netis == request.path %}active{% endif %}" href="{{netis}}">Netis</a>

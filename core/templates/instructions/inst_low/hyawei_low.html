@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html class="no-js" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Set Up Hyawei</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Hyawei</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
+    <div class="articleBody" itemprop="articleBody">
+		<p>Для того, что бы попасть в веб-интерфейс роутера, необходимо открыть ваш Интернет браузер и в строке адреса набрать 192.168.3.1, логин admin, пароль – admin (при условии, что роутер имеет заводские настройки, и его IP не менялся).</p>
 
+<h4>Настройка интернет</h4>
+<ul>
+<li>1. Наверху выбираем раздел Интернет</li>
+<li>2. Слева раздел VPN</li>
+<li>3. В подразделе PPTP ставим галочку включить PPTP</li>
+<li>4. Вводим Ip-адрес сервера: vpn.nktv.info, логин и пароль из договора</li>
+<li>5. Сохранить</li>
+<img src="{%static 'images/1.png'%}">
+</ul>
+
+<h4>Настройка Wi-Fi</h4>
+<ul>
+<li> 1) Наверху выбираем раздел Домашняя сеть</li>
+<li>2) Слева выбираем Настройка Wi-Fi</li>
+<li> 3) Придумываем SSID имя сети (англ. буквы)</li>
+<li>4) Придумываем пароль, не менее 8 символов</li>
+<li> 5) Сохраняем</li>
+<img src="{%static 'images/2.png'%}">
+</ul>
+<p>Перезагружаем роутер</p> 	</div>
+    <a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/rvaBCM_XIO4">Видео инструкция для роутера Hyawei</a>
 </body>
 </html>

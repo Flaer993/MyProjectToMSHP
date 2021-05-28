@@ -38,7 +38,7 @@ class FAQ(ListView):
     template_name = 'faq.html'
     context_object_name = 'list_articles'
 
-#Instructions
+#Instructions type
 class instr(ListView):
     model = Articles
     template_name = 'instructions/pre_instr.html'
@@ -64,12 +64,10 @@ class ASUS(ListView):
     template_name = 'instructions/asus.html'
     context_object_name = 'list_articles'
 
-
 class tplink(ListView):
     model = Articles
     template_name = 'instructions/tp-link.html'
     context_object_name = 'list_articles'
-
 
 class rostelecom(ListView):
     model = Articles
@@ -81,21 +79,21 @@ class xiaomi(ListView):
     template_name = 'instructions/xiaomi.html'
     context_object_name = 'list_articles'
 
-
 class mgts(ListView):
     model = Articles
     template_name = 'instructions/mgts.html'
     context_object_name = 'list_articles'
 
-
 class keenetic(ListView):
     model = Articles
     template_name = 'instructions/keenetic.html'
     context_object_name = 'list_articles'
+
 class netis(ListView):
     model = Articles
     template_name = 'instructions/netis.html'
     context_object_name = 'list_articles'
+
 class micro(ListView):
     model = Articles
     template_name = 'instructions/keenetic.html'
@@ -112,7 +110,6 @@ class ASUSmid(ListView):
     template_name = 'instructions/inst_mid/asus_mid.html'
     context_object_name = 'list_articles'
 
-
 class tplinkMid(ListView):
     model = Articles
     template_name = 'instructions/inst_mid/tp-link_mid.html'
@@ -128,24 +125,20 @@ class xiaomiMid(ListView):
     template_name = 'instructions/inst_mid/xiaomi_mid.html'
     context_object_name = 'list_articles'
 
-
 class mgtsMid(ListView):
     model = Articles
     template_name = 'instructions/inst_mid/mgts_mid.html'
     context_object_name = 'list_articles'
-
 
 class keeneticMid(ListView):
     model = Articles
     template_name = 'instructions/inst_mid/keenetic_mid.html'
     context_object_name = 'list_articles'
 
-
 class netisMid(ListView):
     model = Articles
     template_name = 'instructions/inst_mid/netis_mid.html'
     context_object_name = 'list_articles'
-
 
 class microMid(ListView):
     model = Articles
@@ -156,6 +149,55 @@ class hyaweiMid(ListView):
     model = Articles
     template_name = 'instructions/inst_mid/hyawei_mid.html'
     context_object_name = 'list_articles'
+
+#inst low
+class hyaweiLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/hyawei_low.html'
+    context_object_name = 'list_articles'
+
+class ASUSlow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/asus_low.html'
+    context_object_name = 'list_articles'
+
+class tplinkLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/tp-link_low.html'
+    context_object_name = 'list_articles'
+
+class rostelecomLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/rostelecom_low.html'
+    context_object_name = 'list_articles'
+
+class xiaomiLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/xiaomi_low.html'
+    context_object_name = 'list_articles'
+
+class mgtsLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/mgts_low.html'
+    context_object_name = 'list_articles'
+
+class keeneticLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/keenetic_low.html'
+    context_object_name = 'list_articles'
+
+class netisLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/netis_low.html'
+    context_object_name = 'list_articles'
+
+class microLow(ListView):
+    model = Articles
+    template_name = 'instructions/inst_low/mickrotik_low.html'
+    context_object_name = 'list_articles'
+
+
+
 # class LoginRequiredMixin(AccessMixin):
 #     """Verify that the current user is authenticated."""
 #     def dispatch(self, request, *args, **kwargs):

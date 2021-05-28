@@ -32,7 +32,7 @@ urlpatterns = [
     path('forum', views.ForumListView.as_view(), name='forum'),
     path('faq', views.FAQ.as_view(), name='faq'),
     path('usr', views.UserListView.as_view(), name='usr'),
-    #Insructions
+    #Insructions type
     path('instr', views.instr.as_view(), name='start_inst'),
     path('instLow', views.Low.as_view(), name='low'),
     path('instMid', views.Mid.as_view(), name='mid'),
@@ -57,6 +57,15 @@ urlpatterns = [
     path('keeneticMid', views.keenetic.as_view(), name='keeneticMid'),
     path('hyaweiMid', views.hyawei.as_view(), name='hyaweiMid'),
     path('mickrotikMid', views.microMid.as_view(), name='mickrotikMid'),
+    #low
+    path('hyaweiLow', views.hyaweiLow.as_view(), name='hyaweiLow'),
+    path('asusLow', views.ASUSlow.as_view(), name='asusLow'),
+    path('tp-linkLow', views.tplinkLow.as_view(), name='tp_linkLow'),
+    path('xiaomiLow', views.xiaomiLow.as_view(), name='xiaomiLow'),
+    path('mgtsLow', views.mgtsLow.as_view(), name='mgtsLow'),
+    path('rosteleckomLow', views.rostelecomMid.as_view(), name='rosteleckomLow'),
+    path('netisLow', views.netisLow.as_view(), name='netisLow'),
+    path('keeneticLow', views.keeneticLow.as_view(), name='keeneticLow'),
     
     #ajax
     path('update_comment_status/<int:pk>/<slug:type>', views.update_comment_status, name='update_comment_status')
