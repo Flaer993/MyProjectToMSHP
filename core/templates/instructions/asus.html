@@ -1,49 +1,123 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Настройка рутера ASUS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Netis</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
-   <h3> Настройка рутера ASUS</h3>
-   <ol id="instr-list">
-    <li>
-      <div class="instr-list_item-description-no-image float-left float-not-in-tbl">
-        Зайдите в настройки роутера в браузере по адресу <a href="http://192.168.1.1" target="_blank">192.168.1.1</a>.
-      </div>
-    </li>
-    <li>
-      <div class="instr-list_item-description-no-image float-left float-not-in-tbl">
-        Введите стандартный логин и пароль, указанный в инструкции к роутеру (либо на оборотной стороне самого роутера).
-      </div>
-    </li>
-    <li>
-      <div class="instr-list_item-description float-left float-not-in-tbl">
-  Убедитесь, что включён режим «Беспроводной роутер».
-      </div>
-      <img src="/files/161/7_001.jpg" class="float-right float-not-in-tbl link-img-mb">
-    </li>
-    <li>
-      <div class="instr-list_item-description float-left float-not-in-tbl">
-  Зайдите в раздел «Интернет» и убедитесь, что указан тип WAN-подключения «Автоматический IP». Все остальные настройки должны соответствовать приведённому ниже скриншоту.
-      </div>
-      <img src="/files/161/7_002.jpg" class="float-right float-not-in-tbl link-img-mb">
-    </li>
-    <li>
-      <div class="instr-list_item-description float-left float-not-in-tbl">
-  Для настройки беспроводной сети зайдите в раздел «Беспроводная настройка», в поле «SSID» укажите название вашей сети (только латинскими буквами), в поле «Метод проверки подлинности» выберите тип шифрования «WPA2-Personal», а в поле «Предварительный ключ WPA» напишите пароль, который может содержать латинские буквы и цифры. Нажмите «Применить».
-      </div>
-      <img src="/files/161/7_003.jpg" class="float-right float-not-in-tbl link-img-mb">
-    </li>
-    <li>
-      <div class="instr-list_item-description float-left float-not-in-tbl">
-  Для настройки работы IP-TV зайдите в раздел «Локальная сеть». Перейдите на вкладку «IPTV» и укажите значения в разделах так, как показано на скриншоте. Обратите внимание, что в разделе «Выбор порта IPTV STB» указывается тот Lan-порт, к которому подключается ТВ-приставка.
-      </div>
-      <img src="/files/161/7_004.jpg" class="float-right float-not-in-tbl link-img-mb">
-    </li>
-  </ol>
+    
+	<header>
+		<div class="fakeloader"></div>
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="login">Profile</a>
+			<a href="forum">Forums</a>
+			<a href="faq">FAQ</a>
+		</div>
 
+		<button class="openbtn" onclick="openNav()">&#9776;</button>
+
+		<script>
+			function openNav() {
+				document.getElementById("mySidepanel").style.width = "175px";
+			}
+
+			/* Установите ширину боковой панели в 0 (скройте ее) */
+			function closeNav() {
+				document.getElementById("mySidepanel").style.width = "0";
+			}
+
+		</script>
+
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
+
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
+
+
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
+
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
+
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
+
+				{% endif %}
+				{{request.user}}
+			</ul>
+		</div>
+
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+
+		</script>
+	</header>
+  <main>
+    <h2 id="podklyuchenie-k-kompyuteru-i-vhod-v-veb-interfeys">Подключение к компьютеру и вход в веб-интерфейс</h2>
+    <p class="">Первоначальная установка устройства не должна вызвать никаких проблем даже у начинающего пользователя.</p>
+    <ol><li>Подсоединить роутер к розетке кабелем питания.</li><li>Правильно вставить кабель, который подвёл в жилище <span data-cmtooltip="Провайдер - поставщик чего-либо. В большинстве случаев подразумевает компанию или организацию, которая предоставляет всем желающим услугу доступа к интернету." class="glossaryLink ">провайдер</span>, в <span data-cmtooltip="Глобальная вычислительная сеть, ГВС (англ. <b>Wide</b>&nbsp;<b>Area</b>&nbsp;<b>Network</b>,&nbsp;<b>WAN</b>) — компьютерная сеть, охватывающая большие территории и включающая большое число узлов, возможно находящиеся в различных городах и странах" class="glossaryLink ">WAN</span>-порт устройства (в основном окрашен в синий цвет).</li><li>Патч-кордом, идущим в большинстве случаев в комплекте с роутером, соединить <span data-cmtooltip="<b>Локальная</b> вычислительная сеть (ЛВС,&nbsp;<b>локальная</b>&nbsp;сеть; англ.&nbsp;<b>Local</b>&nbsp;Area&nbsp;<b>Network</b>,&nbsp;<b>LAN</b>) — компьютерная сеть, покрывающая обычно относительно небольшую территорию или небольшую группу зданий (дом, офис, фирму, институт)." class="glossaryLink ">LAN</span>-порты маршрутизатора и компьютера.</li></ol>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/01-1.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3144 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/01-1.jpg" alt="подключение и вход в настройки" width="598" height="270" sizes="(max-width: 598px) 100vw, 598px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/01-1.jpg?v=1593429427 598w, https://help-wifi.ru/wp-content/uploads/2020/06/01-1-300x135.jpg?v=1593429427 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3144" src="https://help-wifi.ru/wp-content/uploads/2020/06/01-1.jpg" alt="&#1087;&#1086;&#1076;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1080;&#1077; &#1080; &#1074;&#1093;&#1086;&#1076; &#1074; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080;" width="598" height="270" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/01-1.jpg?v=1593429427 598w, https://help-wifi.ru/wp-content/uploads/2020/06/01-1-300x135.jpg?v=1593429427 300w" sizes="(max-width: 598px) 100vw, 598px"/></noscript><meta itemprop="width" content="598"><meta itemprop="height" content="270"></span></a></p>
+    <p class="">Если коротко, то достаточно открыть <span data-cmtooltip="Браузер - программа&nbsp; для просмотра страниц в сети Интернет. В глобальной сети браузеры используют для запроса, обработки, манипулирования и отображения содержимого веб-сайтов." class="glossaryLink ">браузер</span> и в адресной строке написать (без кавычек) «192.168.1.1» или router.asus.com и нажать Enter.</p>
+    <p class="">Появится такое окно входа:</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/02.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3145 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/02.jpg" alt="окно входа в настройки" width="488" height="387" sizes="(max-width: 488px) 100vw, 488px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/02.jpg?v=1593429427 488w, https://help-wifi.ru/wp-content/uploads/2020/06/02-300x238.jpg?v=1593429427 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3145" src="https://help-wifi.ru/wp-content/uploads/2020/06/02.jpg" alt="&#1086;&#1082;&#1085;&#1086; &#1074;&#1093;&#1086;&#1076;&#1072; &#1074; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080;" width="488" height="387" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/02.jpg?v=1593429427 488w, https://help-wifi.ru/wp-content/uploads/2020/06/02-300x238.jpg?v=1593429427 300w" sizes="(max-width: 488px) 100vw, 488px"/></noscript><meta itemprop="width" content="488"><meta itemprop="height" content="387"></span></a></p>
+    <p class="">Логин и пароль здесь одинаковые – admin. После их ввода появляется главное окно программы настройки, которое разбито таким образом:</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/03-1.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3146 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/03-1.jpg" alt="Логин и пароль здесь одинаковые" width="765" height="532" sizes="(max-width: 765px) 100vw, 765px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/03-1.jpg?v=1593429428 765w, https://help-wifi.ru/wp-content/uploads/2020/06/03-1-300x209.jpg?v=1593429428 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3146" src="https://help-wifi.ru/wp-content/uploads/2020/06/03-1.jpg" alt="&#1051;&#1086;&#1075;&#1080;&#1085; &#1080; &#1087;&#1072;&#1088;&#1086;&#1083;&#1100; &#1079;&#1076;&#1077;&#1089;&#1100; &#1086;&#1076;&#1080;&#1085;&#1072;&#1082;&#1086;&#1074;&#1099;&#1077;" width="765" height="532" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/03-1.jpg?v=1593429428 765w, https://help-wifi.ru/wp-content/uploads/2020/06/03-1-300x209.jpg?v=1593429428 300w" sizes="(max-width: 765px) 100vw, 765px"/></noscript><meta itemprop="width" content="765"><meta itemprop="height" content="532"></span></a></p>
+    <h2 id="avtomaticheskaya-ekspress-nastroyka">Автоматическая экспресс-настройка</h2>
+    <p class="">Кнопка Quick Internet Setup (QIS), отмеченная соответствующей подписью на предыдущей картинке, позволяет начать процесс моментальной настройки роутера Asus.</p>
+    <p class="">После нажатия на неё пользователь попадает на стартовый экран с описанием модели подключенного роутера и кнопкой «Перейти», отмеченной стрелочкой здесь.</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/04.png"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3147 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/04.png" alt="стартовый экран с описанием модели" width="601" height="376" sizes="(max-width: 601px) 100vw, 601px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/04.png?v=1593429428 601w, https://help-wifi.ru/wp-content/uploads/2020/06/04-300x188.png?v=1593429428 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3147" src="https://help-wifi.ru/wp-content/uploads/2020/06/04.png" alt="&#1089;&#1090;&#1072;&#1088;&#1090;&#1086;&#1074;&#1099;&#1081; &#1101;&#1082;&#1088;&#1072;&#1085; &#1089; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;&#1084; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;" width="601" height="376" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/04.png?v=1593429428 601w, https://help-wifi.ru/wp-content/uploads/2020/06/04-300x188.png?v=1593429428 300w" sizes="(max-width: 601px) 100vw, 601px"/></noscript><meta itemprop="width" content="601"><meta itemprop="height" content="376"></span></a></p>
+    <p class="">Вкладка «Проверьте соединение» поможет установить учётные данные администратора устройства. Пароль при этом должен отвечать критериям надёжности – быть длинным, содержать как прописные, так и строчные буквы, и специальные символы.</p>
+    <p class="rbinder-77475">Во вкладке «Настройки роутера» нужно будет придумать название для своей точки доступа и тоже защитить её паролем (1).&nbsp; Далее просто нажать «Применить» (2) и роутер будет подключен к интернету буквально в течение нескольких секунд.</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/06.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3149 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/06.jpg" alt="название для своей точки доступа" width="700" height="304" sizes="(max-width: 700px) 100vw, 700px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/06.jpg?v=1593429431 700w, https://help-wifi.ru/wp-content/uploads/2020/06/06-300x130.jpg?v=1593429431 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3149" src="https://help-wifi.ru/wp-content/uploads/2020/06/06.jpg" alt="&#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077; &#1076;&#1083;&#1103; &#1089;&#1074;&#1086;&#1077;&#1081; &#1090;&#1086;&#1095;&#1082;&#1080; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072;" width="700" height="304" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/06.jpg?v=1593429431 700w, https://help-wifi.ru/wp-content/uploads/2020/06/06-300x130.jpg?v=1593429431 300w" sizes="(max-width: 700px) 100vw, 700px"/></noscript><meta itemprop="width" content="700"><meta itemprop="height" content="304"></span></a></p>
+    <p class="">После этого нужно одноразово войти в систему с помощью данных, присвоенных на предыдущем шаге. Для этого на экране «Сеть сконфигурирована» нажать «Далее».</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/07.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3150 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/07.jpg" alt="Сеть сконфигурирована и кнопка дальше" width="700" height="291" sizes="(max-width: 700px) 100vw, 700px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/07.jpg?v=1593429432 700w, https://help-wifi.ru/wp-content/uploads/2020/06/07-300x125.jpg?v=1593429432 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3150" src="https://help-wifi.ru/wp-content/uploads/2020/06/07.jpg" alt="&#1057;&#1077;&#1090;&#1100; &#1089;&#1082;&#1086;&#1085;&#1092;&#1080;&#1075;&#1091;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1072; &#1080; &#1082;&#1085;&#1086;&#1087;&#1082;&#1072; &#1076;&#1072;&#1083;&#1100;&#1096;&#1077;" width="700" height="291" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/07.jpg?v=1593429432 700w, https://help-wifi.ru/wp-content/uploads/2020/06/07-300x125.jpg?v=1593429432 300w" sizes="(max-width: 700px) 100vw, 700px"/></noscript><meta itemprop="width" content="700"><meta itemprop="height" content="291"></span></a></p>
+    <p class="">А после этого во всплывающем окне ввести соответствующие учётные данные и нажать «Вход в систему»:</p>
+    <p class=""><a href="https://help-wifi.ru/wp-content/uploads/2020/06/08.jpg"><span itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3151 lazyloaded" src="https://help-wifi.ru/wp-content/uploads/2020/06/08.jpg" alt="ввести соответствующие учётные данные" width="700" height="204" sizes="(max-width: 700px) 100vw, 700px" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/08.jpg?v=1593429432 700w, https://help-wifi.ru/wp-content/uploads/2020/06/08-300x87.jpg?v=1593429432 300w" data-ll-status="loaded"><noscript><img itemprop="url image" loading="lazy" class="aligncenter size-full wp-image-3151" src="https://help-wifi.ru/wp-content/uploads/2020/06/08.jpg" alt="&#1074;&#1074;&#1077;&#1089;&#1090;&#1080; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1091;&#1095;&#1105;&#1090;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;" width="700" height="204" srcset="https://help-wifi.ru/wp-content/uploads/2020/06/08.jpg?v=1593429432 700w, https://help-wifi.ru/wp-content/uploads/2020/06/08-300x87.jpg?v=1593429432 300w" sizes="(max-width: 700px) 100vw, 700px"/></noscript><meta itemprop="width" content="700"><meta itemprop="height" content="204"></span></a></p>
+    <p class="">Если <span data-cmtooltip="Провайдер - поставщик чего-либо. В большинстве случаев подразумевает компанию или организацию, которая предоставляет всем желающим услугу доступа к интернету." class="glossaryLink ">провайдер</span> присваивает все IP-адреса по DHCP (автоматически), больше никакие действия не нужны. Но в любом другом случае понадобится ручная настройка.</p>
+
+
+
+
+
+
+
+  </main>
 </body>
 </html>
