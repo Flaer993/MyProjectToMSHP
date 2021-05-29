@@ -75,7 +75,6 @@
 			</ul>
 		</div>
 
-		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
 		<script>
@@ -93,7 +92,6 @@
 		<h2>Насколько вы знакомы роутерами?</h2>
 		<div>
 			{% url 'hard' as url_hard %}
-	
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
 			{% url 'mid' as url_mid %}
 	
