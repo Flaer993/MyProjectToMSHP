@@ -60,7 +60,7 @@ urlpatterns = [
     #low
     path('hyaweiLow', views.hyaweiLow.as_view(), name='hyaweiLow'),
     path('asusLow', views.ASUSlow.as_view(), name='asusLow'),
-    path('tp-linkLow', views.tplinkLow.as_view(), name='tp_linkLow'),
+    path('tplinkLow', views.tplinkLow.as_view(), name='tplinkLow'),
     path('xiaomiLow', views.xiaomiLow.as_view(), name='xiaomiLow'),
     path('mgtsLow', views.mgtsLow.as_view(), name='mgtsLow'),
     path('rosteleckomLow', views.rostelecomMid.as_view(), name='rosteleckomLow'),

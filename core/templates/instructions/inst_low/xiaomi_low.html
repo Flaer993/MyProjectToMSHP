@@ -1,10 +1,170 @@
 <!DOCTYPE html>
-<html lang="ru">
+<{% load static %}
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Set Up Xiaomi</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Xiaomi</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
+    
+	<header>
+		<div class="fakeloader"></div>
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="login">Profile</a>
+			<a href="forum">Forums</a>
+			<a href="faq">FAQ</a>
+		</div>
 
+		<button class="openbtn" onclick="openNav()">&#9776;</button>
+
+		<script>
+			function openNav() {
+				document.getElementById("mySidepanel").style.width = "175px";
+			}
+
+			/* Установите ширину боковой панели в 0 (скройте ее) */
+			function closeNav() {
+				document.getElementById("mySidepanel").style.width = "0";
+			}
+
+		</script>
+
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
+
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
+
+
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
+
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
+
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
+
+				{% endif %}
+				{{request.user}}
+			</ul>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+
+		</script>
+	</header>
+<main>
+    <div class="content">
+        <span style="font-family: Arial, Helvetica; font-size: 13pt;"><span style="font-size: 16pt;">Шаг 1. Подключение кабелей</span><br>
+</span><br>
+<span style="font-family: Arial, Helvetica; font-size: 13pt;">Н</span><span style="font-family: Arial, Helvetica; font-size: 13pt;">еобходимо включить роутер в сеть питания, а затем&nbsp;подключить в&nbsp;WAN-разъем кабель Ethernet.</span>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_1.jpg" src="/upload/machaon/pagespeed/medialibrary/eca/eca55ccab23dc444a635f28d9c5a06f9.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/eca/eca55ccab23dc444a635f28d9c5a06f9.jpg.webp" height="500" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_1.jpg">
+</p>
+<span style="font-family: Arial, Helvetica; font-size: 13pt;"><span style="font-size: 16pt;">Шаг 2. Настройка сетевого подключения</span><br>
+</span><span style="font-family: Arial, Helvetica; font-size: 13pt;"><br>
+</span><span style="font-family: Arial, Helvetica; font-size: 13pt;">Подключитесь к сети Wi-Fi с помощью телефона или компьютера (без пароля). Имя сети Wi-Fi можно найти на корпусе роутера.&nbsp;</span><span style="font-family: Arial, Helvetica; font-size: 13pt;">Подождите, пока индикатор системы&nbsp;не загорится синим</span><span style="font-family: Arial, Helvetica; font-size: 13pt;">&nbsp;светом.<br>
+</span>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_2.jpg" src="/upload/machaon/pagespeed/medialibrary/222/222229d695d3131d36463f6ea2546f5f.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/222/222229d695d3131d36463f6ea2546f5f.jpg.webp" height="500" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_2.jpg">
+</p>
+<span style="font-family: Arial, Helvetica; font-size: 13pt;">Найдите сеть Wi-Fi и подключитесь к ней.</span><span style="font-family: Arial, Helvetica; font-size: 13pt;"><span style="font-family: Arial, Helvetica;"><br>
+</span></span>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_1.jpg" src="/upload/machaon/pagespeed/medialibrary/5d3/5d3149338ba58b78fbaa1f16efe01546.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/5d3/5d3149338ba58b78fbaa1f16efe01546.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_1.jpg">
+</p>
+<span style="font-family: Arial, Helvetica; font-size: 13pt;">Следующим этапом вы автоматически будете направлены на начальную страницу для подключения к Интернету (если этого не происходит, откройте браузер и введите: router.miwifi.com или 192.168.31.1).</span><br>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_2.jpg" src="/upload/machaon/pagespeed/medialibrary/065/065fb4bc7252dd2c629cf4279909fdf7.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/065/065fb4bc7252dd2c629cf4279909fdf7.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_2.jpg">
+</p>
+<p style="text-align: left;">
+<span style="font-family: Arial, Helvetica; font-size: 13pt;">Введите имя учетной записи и пароль, предоставленные вашим провайдером Интернета, затем нажмите на кнопку «Далее» (существует несколько способов подключения к Интернету, поэтому этот шаг может быть пропущен). Если вы забыли имя и пароль учетной записи в системе провайдера Интернета, вы можете получить их, обратившись к своему провайдеру Интернета.</span>
+</p>
+<p style="text-align: center;">
+<span style="font-family: Arial, Helvetica; font-size: 13pt;"><img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_3.jpg" src="/upload/machaon/pagespeed/medialibrary/1d5/1d5db448413f04e2d6140d5a13eeb06a.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/1d5/1d5db448413f04e2d6140d5a13eeb06a.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_3.jpg"><br>
+</span>
+</p>
+<p style="text-align: left;">
+<span style="font-family: Arial, Helvetica; font-size: 13pt;">Теперь установите новый пароль Wi-Fi и администратора. Можно также использовать пароль Wi-Fi в качестве пароля администратора. Подождите, пока индикатор перестанет мигать и загорится синим светом, затем снова подключитесь к сети Wi-Fi.</span>
+</p>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_4.jpg" src="/upload/machaon/pagespeed/medialibrary/8bb/8bbc7ae6b77fb7c11074cb8a9d088a4b.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/8bb/8bbc7ae6b77fb7c11074cb8a9d088a4b.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_4.jpg"><br>
+</p>
+<p style="text-align: center;">
+<span style="font-family: Arial, Helvetica; font-size: 16pt;">⇓</span>
+</p>
+<p style="text-align: center;">
+<img data-lazyload="" class=" ls-is-cached lazyloaded" alt="Нстройка роутера_схема_5.jpg" src="/upload/machaon/pagespeed/medialibrary/4a8/4a86e3b84bb168da5b3be03e107e647b.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/4a8/4a86e3b84bb168da5b3be03e107e647b.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_5.jpg"><br>
+</p>
+<p style="text-align: center;">
+<span style="font-family: Arial, Helvetica; font-size: 16pt;">⇓</span><br>
+</p>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_6.jpg" src="/upload/medialibrary/f56/f561be1531c351f9c0af57c3a1f80116.jpg" data-src="/upload/medialibrary/f56/f561be1531c351f9c0af57c3a1f80116.jpg" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_6.jpg"><br>
+</p>
+<p style="text-align: left;">
+<span style="font-family: Arial, Helvetica; font-size: 16pt;">Шаг 3. Как настроить интеллектуальную антенну AIoT и добавить устройства&nbsp;<span style="font-size: 13pt; font-family: Arial, Helvetica;">(</span></span><span style="font-family: Arial, Helvetica; font-size: 13pt;">Этот шаг настраивается для роутеров Xiaomi, которые имеют специальную антенну для устройств умного дома).</span>
+</p>
+<p style="text-align: center;">
+</p>
+<ul style="text-align: left;">
+<li><span style="font-family: Arial, Helvetica;"><span style="font-size: 13pt;"><span style="font-family: Arial, Helvetica;">Скачайте&nbsp;приложения&nbsp;</span><a href="https://play.google.com/store/apps/details?id=com.xiaomi.router&amp;hl=ru"><span style="font-family: Arial, Helvetica;">Mi Wi-Fi</span></a><span style="font-family: Arial, Helvetica;"> и </span><a href="https://play.google.com/store/apps/details?id=com.xiaomi.smarthome&amp;hl=ru"><span style="font-family: Arial, Helvetica;">Mi Home</span></a><span style="font-family: Arial, Helvetica;"> из Play Маркет.</span></span></span></li>
+<li><span style="font-size: 13pt; font-family: Arial, Helvetica;">Добавьте роутер к учетной записи Mi. Для этого подключите смартфон к точке доступа Wi-Fi роутера Mi Wi-Fi. Откройте приложение Mi Wi-Fi и войдите в свою учётную запись Mi. Следуйте подсказкам, чтобы добавить роутер в учетную запись Mi.</span></li>
+</ul>
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_7.jpg" src="/upload/machaon/pagespeed/medialibrary/ce1/ce17c1949d94b7709c413da0adc837e9.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/ce1/ce17c1949d94b7709c413da0adc837e9.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_7.jpg">
+</p>
+<span style="font-size: 17.3333px;"><br>
+</span>
+<p>
+</p>
+<p style="text-align: center;">
+</p>
+<ul>
+<li style="text-align: left;"><span style="font-family: Arial, Helvetica; font-size: 13pt;">Добавьте устройства Mi Home. Для этого включите нужные умные устройства в сеть. Интеллектуальная антенна AIoT автоматически обнаружит устройство. Откройте приложение Mi Home и войдите в учетную запись Mi, которая использовалась в предыдущем шаге. Отобразится подсказка, сообщающая об обнаружении нового устройства. Следуйте инструкциям по добавлению устройства.</span></li>
+</ul>
+<span style="font-size: 17.3333px;">
+<p style="text-align: center;">
+<img data-lazyload="" class=" lazyloaded" alt="Нстройка роутера_схема_8.jpg" src="/upload/machaon/pagespeed/medialibrary/36a/36a3459aa1c0e8f48ab5983273f6431f.jpg.webp" data-src="/upload/machaon/pagespeed/medialibrary/36a/36a3459aa1c0e8f48ab5983273f6431f.jpg.webp" height="200" width="" style="display: block;margin: 0 auto;" title="Нстройка роутера_схема_8.jpg">
+</p>
+</span>
+<p>						</div>
+<a class="btn2 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/pLpunASElcY">Xioami</a>
+</main>
 </body>
 </html>

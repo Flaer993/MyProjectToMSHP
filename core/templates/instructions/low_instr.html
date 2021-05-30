@@ -90,17 +90,19 @@
 		</script>
 	</header>
 	<main> 	
+		<h2 class="hel">Выберите инструкцию</h2>
 			{% url 'hyaweiLow' as hyaweilow %}
 			<a class="btn1 {% if hyaweilow == request.path %}active{% endif %}" href="{{hyaweilow}}">Hyawei</a>
 			{% url 'netisLow' as netislow %}
 			<a class="btn1 {% if netislow == request.path %}active{% endif %}" href="{{netislow}}">Netis</a>	
-			{% url 'tp-linkLow' as tp_link %}	
-			<a class="btn1 {% if tp_link == request.path %}active{% endif %}" href="https://youtu.be/3qg2GyqikNo">TP-Link</a>
-			{% url 'hyaweiLow' as hyaweilow %}
-			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/pLpunASElcY">Xioami</a>
-			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/s9scLHL4ZIg">Asus</a>
+			{% url 'tplinkLow' as tplinkLow %}	
+			<a class="btn1 {% if tplinkLow == request.path %}active{% endif %}" href="tplinkLow">TP-Link</a>
+			{% url 'xiaomiLow' as xiaomi %}
+			<a class="btn1 {% if xiaomi == request.path %}active{% endif %}" href="{{xiaomi}}">Xioami</a>
+			{% url 'asusLow' as asus %}
+			<a class="btn1 {% if asus == request.path %}active{% endif %}" href="{{asus}}">Asus</a>
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://inetgu.ru/moskva/news/router-mgts-gpon-ip-adres-nastrojka.html">MGTS</a>
-			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/uBskX7AYh6I">Keenetic</a>
+			<a class="btn3 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/uBskX7AYh6I">Keenetic</a>
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/VCzPUuaiPAU">MickroTick</a>
 	</main>
 

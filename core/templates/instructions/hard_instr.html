@@ -94,8 +94,9 @@
 		</script>
 	</header>
 	<main>
-		
+		<h2 class="hel">Выберите инструкцию</h2>
 		<div>
+			
 			{% url 'hyawei' as hyawie %}
 	
 			<a class="btn1 {% if hyawie == request.path %}active{% endif %}" href="{{hyawie}}">Hyawei</a>
@@ -117,7 +118,7 @@
 			<a class="btn1 {% if mgts == request.path %}active{% endif %}" href="{{mgts}}">MGTS</a>
 			{% url 'keenetic' as keenetic %}
 	
-			<a class="btn1 {% if keenetic == request.path %}active{% endif %}" href="{{keenetic}}">Keenetic</a>
+			<a class="btn3 {% if keenetic == request.path %}active{% endif %}" href="{{keenetic}}">Keenetic</a>
 			{% url 'mickrotik' as mickrotik %}
 	
 			<a class="btn1 {% if mickrotik == request.path %}active{% endif %}" href="{{mickrotik}}">MickroTik</a>
