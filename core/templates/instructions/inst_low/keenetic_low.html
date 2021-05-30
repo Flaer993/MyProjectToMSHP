@@ -1,21 +1,153 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Set Up Keenetic</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Keenetic</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
-<p>ГлавнаяKeeneticКак подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva
-Как подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva
-Хотите самостоятельно подключить и выполнить настройку роутера Keenetic? В этой подробной инструкции я покажу, как это сделать. Расскажу о всех нюансах, добавлю фото и необходимые скриншоты. Демонстрировать процесс настройки я буду на примере интернет-центра Keenetic Viva, который был куплен специально для написания этой и еще нескольких инструкций, которые я буду размещать в отдельном разделе на этом сайте. Для начала выполним подключение, затем настройку подключения к интернету с помощью Ethernet-кабеля, настроим Wi-Fi и установим пароль.
+    
+	<header>
+		<div class="fakeloader"></div>
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="login">Profile</a>
+			<a href="forum">Forums</a>
+			<a href="faq">FAQ</a>
+		</div>
 
-Эта инструкция подойдет практически для всех новых роутеров Keenetic, на которых установлена операционная система KeeneticOS с новым веб-интерфейсом. Для следующих моделей: Keenetic Giga (KN-1010), Ultra (KN-1810), Speedster (KN-3010), Air (KN-1611), Start KN-1111, Lite KN-1311, City (KN-1511), Omni (KN-1410), DSL (KN-2010), Duo (KN-2110), Extra (KN-1710, KN-1711), 4G (KN-1210), Hero 4G (KN-2310), Runner 4G (KN-2210). Ну и для Keenetic Viva (KN-1910), на примере которого я буду писать эту статью.
+		<button class="openbtn" onclick="openNav()">&#9776;</button>
 
-Для начала я рекомендую узнать следующую информацию:
+		<script>
+			function openNav() {
+				document.getElementById("mySidepanel").style.width = "175px";
+			}
 
-Какой тип подключения использует ваш интернет-провайдер: Динамический IP (DHCP), Статический IP, PPPoE, L2TP, PPTP.
-Если тип подключения PPPoE – вы должны знать имя пользователя и пароль. Если L2TP или PPTP, то кроме имени пользователя и пароля у вас еще должен быть адрес сервера.
-Делает ли интернет-провайдер привязку по MAС-адресу.
-Как правило, эту информацию можно посмотреть в договоре о подключении к интернету, или узнать у поддержки интернет-провайдера.<p>
+			/* Установите ширину боковой панели в 0 (скройте ее) */
+			function closeNav() {
+				document.getElementById("mySidepanel").style.width = "0";
+			}
+
+		</script>
+
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
+
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
+
+
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
+
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
+
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
+
+				{% endif %}
+				{{request.user}}
+			</ul>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+
+		</script>
+	</header>
+<main>
+    <div class="article-body markdown" itemprop="articleBody">
+        
+        
+        <p class="note">В данной статье показана настройка версий ОС NDMS 2.11 и более ранних. Настройка актуальной версии ПО представлена в статье "<a href="/hc/ru/articles/360000026919" target="_blank" rel="noopener">Мастер начальной настройки NetFriend</a>".</p>
+<p>Для настройки интернет-центра вы можете воспользоваться <a href="https://help.keenetic.net/hc/ru/articles/213965589" target="_blank" rel="noopener">веб-конфигуратором</a> с мастером быстрой настройки, который поможет вам в несколько шагов настроить подключение к Интернету по выделенной линии Ethernet.</p>
+<p>Перед началом настройки интернет-центра подключите его к компьютеру. Для этого обратитесь к инструкции по применению, которая входит в комплектацию устройства.</p>
+<p><strong>Внимание! </strong>В данной статье приведены настройки для первого подключения интернет-центра с заводскими установками, когда на компьютере/ноутбуке пользователя для сетевого адаптера Ethernet или Wi-Fi установлено <a href="https://help.keenetic.net/hc/ru/articles/213965929">автоматическое получение IP-адреса</a>.</p>
+<p>На компьютере, подключенном к интернет-центру, запустите веб-браузер. Вы увидите страницу приветствия веб-конфигуратора интернет-центра.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/bdc64dac-5a39-46a4-8976-22170d50557f.jpeg' %}"></p>
+<p>Если на вашем экране вы видите другую страницу, введите в адресной строке веб-браузера адрес интернет-центра: <strong><span style="text-decoration: underline;">my.keenetic.net</span></strong> или <strong><span style="text-decoration: underline;">192.168.1.1</span></strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/3b8156fc-33ae-4ff2-a66a-6a72087b776c.jpeg' %}"></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/6eeaa5a0-a2cd-42e6-9262-29fe01b625fc.jpeg' %}"></p>
+<p>Щелкните на странице приветствия веб-конфигуратора по кнопке <strong>Быстрая настройка</strong>. Запустится мастер, который позволит вам настроить подключение в диалоговом режиме без необходимости предварительного изучения подробных инструкций и технических деталей. По завершении настройки он проверит исправность подключения.</p>
+<p>Итак, нажав на кнопку <strong>Быстрая настройка</strong> вы увидите сообщение <strong>Интернет-кабель не подключен</strong>. Для продолжения настройки подключите интернет-кабель от вашего провайдера к синему разъему <strong>"0"</strong> интернет-центра и нажмите кнопку <strong>Далее</strong> для продолжения.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/be3ef3f2-d6bf-4839-a64b-792eeb9d58cb.jpeg' %}"></p>
+<p>После подключения интернет-кабеля произойдет <strong>Проверка подключения</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/21dcad42-04cc-467a-b0d9-55a89daa6f6c.jpeg' %}"></p>
+<p>В следующем окне настройки подключения к Интернету нужно указать регистрирует ваш провайдер MAC-адреса или нет. Если провайдер не регистрирует MAC-адреса, оставьте значение <strong>Мой провайдер не регистрирует MAC-адреса</strong>. Если ваш провайдер регистрирует MAC-адреса, укажите тот MAC-адрес, который зарегистрирован у провайдера или сообщите ему MAC-адрес этого интернет-центра. Нажмите кнопку <strong>Далее</strong> для продолжения.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/624eabeb-7d24-45f2-9881-3455ce2941ea.jpeg' %}"></p>
+<p>В следующем окне нужно настроить параметры протокола IP. Если провайдер не выдал вам IP-адрес, в поле <strong>Настройка IP-адреса</strong> выберите значение <strong>Автоматическая</strong> для получения IP-адреса по DHCP и нажмите кнопку <strong>Далее</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/059e393f-d0f1-4b88-8318-a6eed37f60bd.jpeg' %}"></p>
+<p>Если вы получаете IP-адрес автоматически по DHCP, но вам необходимо вручную установить адреса DNS-cерверов, в этом случае поставьте галочку в поле <strong>Задать адреса DNS-серверов вручную</strong> и в поле <strong>Сервер DNS</strong> впишите IP-адрес.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/07d4b2a7-ddea-422a-a070-10ccf7aa5686.jpeg' %}"></p>
+<p>Если провайдер выдал вам статический IP-адрес, в поле <strong>Настройка IP-адреса</strong> выберите значение <strong>Ручная</strong>. В появившихся полях <strong>IP-адрес</strong>, <strong>Шлюз</strong>, <strong>Маска подсети</strong>, <strong>Сервер DNS</strong> впишите соответственно IP-адрес, IP-адрес шлюза, маску подсети и сервер DNS, предоставленные провайдером. Нажмите кнопку <strong>Далее</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/cbb5e85e-8ca5-469d-8ab5-a15bf2f32c1c.jpeg' %}"></p>
+<p>В следующем окне продолжайте настройку интернет-центра. Если провайдер вам не предоставил логина и пароля, в этом случае установите галочку в поле <strong>У меня нет пароля для доступа в Интернет</strong> и затем нажмите кнопку <strong>Далее</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/3aecefcf-b4d5-45ba-b46f-f9b299c45499.jpeg' %}"></p>
+<p>Если провайдер предоставляет логин и пароль (должны быть прописаны в договоре с провайдером), введите их соответственно в поля <strong>Логин (имя пользователя)</strong> и <strong>Пароль для доступа в Интернет</strong>. Нажмите кнопку <strong>Далее</strong> для продолжения.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/4eaa8a68-17e8-4ce9-ae34-a166f22ae862.jpeg' %}"></p>
+<p>После ввода логина и пароля для доступа в Интернет, появится окно с выбором типа подключения. Провайдер обычно указывает тип подключения к Интернету в договоре.<br> Укажите используемый у вас в сети один из типов подключения: <strong>VPN(L2TP)</strong>, <strong>VPN(PPTP)</strong>, <strong>PPPoE</strong> или <strong>802.1x</strong>. Для продолжения настройки нажмите кнопку <strong>Далее</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/0fcd09d0-63f7-4a71-aa6c-bc3c05786c3c.jpeg' %}"></p>
+<p>При выборе подключения <strong>VPN(L2TP) </strong>нужно будет указать IP-адрес или имя VPN-сервера.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/20ddd851-e73b-49f8-b962-f198cd86f71a.jpeg' %}"></p>
+<p>При выборе подключения <strong><strong>VPN(PPTP)</strong> </strong>нужно будет указать IP-адрес или имя VPN-сервера.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/39339ff2-bf8d-437d-adbd-58126b684e55.jpeg' %}"></p>
+<p>При выборе типа подключения <strong>PPPoE</strong> при необходимости (если требуется провайдером) вы можете указать имя сервиса PPPoE и имя концентратора PPPoE (данные параметры должны быть предоставлены вашим провайдером и прописаны в договоре).</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/64e77034-0bd2-4ff2-8283-8a28d7e19fab.jpeg' %}"></p>
+<p>При выборе типа подключения <strong>802.1x</strong> укажите способ авторизации <strong>EAP-MD5</strong> или <strong>EAP-TTLS/MSCAP-v2</strong>, используемый в сети провайдера.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/0a891161-70c8-480f-9e5d-e5113cbe0ac1.jpeg' %}"></p>
+<p>При установке правильных параметров, интернет-центр установит соединение с Интернетом и проверит на актуальность программные компоненты устройства. Если интернет-центру потребуются обновления, нажмите кнопку <strong>Обновить</strong>. Интернет-центр самостоятельно загрузит и установит обновления.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/a9d79e04-6d5e-4d9d-afeb-1cbcf0b0441f.jpeg' %}"></p>
+<p>Во время обновления компонентов интернет-центра вы увидите статус данного процесса: <strong>Загрузка обновления с сервера &gt; Обновление устройства &gt; Перезагрузка устройства</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/b1826692-54ec-497a-880b-84cef1f677a9.jpeg' %}"></p>
+<p>Установка обновлений занимает несколько минут, после чего интернет-центр перезагрузится. <strong>Внимание! Не выключайте интернет-центр в процессе обновления!</strong><br> После успешного обновления компонентов, вы увидите сообщение: <strong>Компоненты интернет-центра обновлены</strong>. Для продолжения нажмите кнопку <strong>Далее</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/854cceca-2669-4fe3-9db8-700612d61a18.jpeg' %}"></p>
+<p>Итак, работа Мастера быстрой настройки по подключению интернет-центра к Интернету завершена. Вы увидите сообщение: <strong>Интернет-центр настроен и установил соединение с Интернетом</strong>.</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="{% static 'images/e61f7837-3ffe-4d6b-ba9b-f12b18ee0026.jpeg' %}"></p>
+<p>Вы можете выйти в Интернет прямо сейчас, нажав кнопку <strong>Выйти в Интернет</strong>.</p>
+<p>Нажав кнопку <strong>Веб-конфигуратор</strong> можно перейти в веб-конфигуратор интернет-центра для настройки дополнительных функций.</p>
+<p><img src="{% static 'images/web-interface.png' %}" alt="web-interface.png"></p>
+<p><br> <strong>Примечание</strong></p>
+<p>Выполнив один раз настройку подключения к Интернету через Мастер быстрой настройки, данный мастер больше не будет появляться при подключении к веб-конфигуратору интернет-центра, через который вы также можете настраивать устройство: <a href="https://help.keenetic.net/hc/ru/articles/213966589">«Самостоятельная настройка Keenetic для подключения к Интернету по Ethernet-кабелю»</a>.<br> Но если вы решили перенастроить свой интернет-центр, снова запустить Мастер быстрой настройки возможно одним из указанных ниже способов.</p>
+<p>1. В веб-конфигураторе в меню <strong>Интернет</strong> нажмите кнопку <strong>NetFriend</strong>.</p>
+<p><img src="/hc/article_attachments/115010639609/nf.png" alt="nf.png"></p>
+<p>После чего запустится Мастер быстрой настройки. Далее следуйте инструкциям мастера, указанным выше в данной статье.</p>
+<p>2. Запустить Мастер быстрой настройки можно, выполнив сброс всех пользовательских настроек интернет-центра на заводские установки с помощью кнопки <a href="https://help.keenetic.net/hc/ru/articles/214470845"><strong>Сброс</strong></a>.</p>
+<p>&nbsp;</p>
+      </div>
+      <a class="btn3 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/uBskX7AYh6I">Keenetic</a>
+</main>
 </body>
 </html>

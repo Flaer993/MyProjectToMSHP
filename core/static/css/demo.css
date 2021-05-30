@@ -12,6 +12,7 @@
 	border-color: #007bff;
 	margin-left:960px;
 }
+
 .btn1 {
 	display: inline-block; /* Строчно-блочный элемент */
 	background: #007bff; /* Серый цвет фона */
@@ -36,7 +37,7 @@
 	top: 420px;
 	text-decoration: none;
 	margin-top: 100px;
-	margin-left: 960px;
+	margin-left: 560px;
 
    }
    .btn3{
@@ -50,11 +51,11 @@
 	top: 420px;
 	text-decoration: none;
 	margin-top: 100px;
-	margin-left: 660px;
+	margin-left: 460px;
 	margin-right: 100px;
    }
 .hel {
-	margin-left: 790px;
+	margin-left: 590px;
 }
 .strt_btn{
 width:400px;
@@ -66,6 +67,7 @@ main{
 	width: 1920px;
 	height: 1080px;
 	position: center;
+	margin-left: 200px;
 }
 .news1{
 width: 260px;

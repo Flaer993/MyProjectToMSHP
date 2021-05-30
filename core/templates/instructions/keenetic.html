@@ -1,21 +1,107 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Set Up Keenetic</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Keenetic</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
-<p>ГлавнаяKeeneticКак подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva
-Как подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva
-Хотите самостоятельно подключить и выполнить настройку роутера Keenetic? В этой подробной инструкции я покажу, как это сделать. Расскажу о всех нюансах, добавлю фото и необходимые скриншоты. Демонстрировать процесс настройки я буду на примере интернет-центра Keenetic Viva, который был куплен специально для написания этой и еще нескольких инструкций, которые я буду размещать в отдельном разделе на этом сайте. Для начала выполним подключение, затем настройку подключения к интернету с помощью Ethernet-кабеля, настроим Wi-Fi и установим пароль.
+    
+	<header>
+		<div class="fakeloader"></div>
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="login">Profile</a>
+			<a href="forum">Forums</a>
+			<a href="faq">FAQ</a>
+		</div>
 
-Эта инструкция подойдет практически для всех новых роутеров Keenetic, на которых установлена операционная система KeeneticOS с новым веб-интерфейсом. Для следующих моделей: Keenetic Giga (KN-1010), Ultra (KN-1810), Speedster (KN-3010), Air (KN-1611), Start KN-1111, Lite KN-1311, City (KN-1511), Omni (KN-1410), DSL (KN-2010), Duo (KN-2110), Extra (KN-1710, KN-1711), 4G (KN-1210), Hero 4G (KN-2310), Runner 4G (KN-2210). Ну и для Keenetic Viva (KN-1910), на примере которого я буду писать эту статью.
+		<button class="openbtn" onclick="openNav()">&#9776;</button>
 
-Для начала я рекомендую узнать следующую информацию:
+		<script>
+			function openNav() {
+				document.getElementById("mySidepanel").style.width = "175px";
+			}
 
-Какой тип подключения использует ваш интернет-провайдер: Динамический IP (DHCP), Статический IP, PPPoE, L2TP, PPTP.
-Если тип подключения PPPoE – вы должны знать имя пользователя и пароль. Если L2TP или PPTP, то кроме имени пользователя и пароля у вас еще должен быть адрес сервера.
-Делает ли интернет-провайдер привязку по MAС-адресу.
-Как правило, эту информацию можно посмотреть в договоре о подключении к интернету, или узнать у поддержки интернет-провайдера.<p>
+			/* Установите ширину боковой панели в 0 (скройте ее) */
+			function closeNav() {
+				document.getElementById("mySidepanel").style.width = "0";
+			}
+
+		</script>
+
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
+
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
+
+
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
+
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
+
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
+
+				{% endif %}
+				{{request.user}}
+			</ul>
+		</div>
+
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+
+		</script>
+	</header>
+    <main>
+<p>ГлавнаяKeeneticКак подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva <br>
+Как подключить и настроить роутер Keenetic? Инструкция на примере Keenetic Viva <br>
+Хотите самостоятельно подключить и выполнить настройку роутера Keenetic? В этой подробной инструкции я покажу, как это сделать. Расскажу о всех нюансах, добавлю фото и необходимые скриншоты. Демонстрировать процесс настройки я буду на примере интернет-центра Keenetic Viva, который был куплен специально для написания этой и еще нескольких инструкций, которые я буду размещать в отдельном разделе на этом сайте. Для начала выполним подключение, затем настройку подключения к интернету с помощью Ethernet-кабеля, настроим Wi-Fi и установим пароль. <br>
+
+Эта инструкция подойдет практически для всех новых роутеров Keenetic, на которых установлена операционная система KeeneticOS с новым веб-интерфейсом. Для следующих моделей: Keenetic Giga (KN-1010), Ultra (KN-1810), Speedster (KN-3010), Air (KN-1611), Start KN-1111, Lite KN-1311, City (KN-1511), Omni (KN-1410), DSL (KN-2010), Duo (KN-2110), Extra (KN-1710, KN-1711), 4G (KN-1210), Hero 4G (KN-2310), Runner 4G (KN-2210). Ну и для Keenetic Viva (KN-1910), на примере которого я буду писать эту статью. <br>
+
+Для начала я рекомендую узнать следующую информацию: <br>
+
+Какой тип подключения использует ваш интернет-провайдер: Динамический IP (DHCP), Статический IP, PPPoE, L2TP, PPTP. <br>
+Если тип подключения PPPoE – вы должны знать имя пользователя и пароль. Если L2TP или PPTP, то кроме имени пользователя и пароля у вас еще должен быть адрес сервера. <br>
+Делает ли интернет-провайдер привязку по MAС-адресу. <br>
+Как правило, эту информацию можно посмотреть в договоре о подключении к интернету, или узнать у поддержки интернет-провайдера.</p>
+</main>
 </body>
 </html>

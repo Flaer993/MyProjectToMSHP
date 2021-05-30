@@ -102,7 +102,8 @@
 			{% url 'asusLow' as asus %}
 			<a class="btn1 {% if asus == request.path %}active{% endif %}" href="{{asus}}">Asus</a>
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://inetgu.ru/moskva/news/router-mgts-gpon-ip-adres-nastrojka.html">MGTS</a>
-			<a class="btn3 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/uBskX7AYh6I">Keenetic</a>
+			{% url 'keeneticLow' as keeneticLow %}
+			<a class="btn3 {% if keeneticLow == request.path %}active{% endif %}" href="keeneticLow">Keenetic</a>
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="https://youtu.be/VCzPUuaiPAU">MickroTick</a>
 	</main>
 
