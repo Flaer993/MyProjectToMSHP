@@ -90,7 +90,7 @@
 	</header>
 	<main>
 		<h2>Насколько вы знакомы роутерами?</h2>
-		<div>
+		<div style="margin: auto;">
 			{% url 'hard' as url_hard %}
 			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
 			{% url 'mid' as url_mid %}
