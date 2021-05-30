@@ -1,27 +1,113 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html class="no-js">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Set Up Tp-Link</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>FastWiFi</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
-Шаг 1 Откройте браузер и в адресной строке укажите IP-адрес устройства (по умолчанию - 192.168.1.1). Нажмите кнопку Enter (Ввод).
+    
+	<header>
+		<div class="fakeloader"></div>
+		<div id="mySidepanel" class="sidepanel">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="login">Profile</a>
+			<a href="forum">Forums</a>
+			<a href="faq">FAQ</a>
+		</div>
 
-Шаг 2 В окне входа в систему введите имя пользователя и пароль. По умолчанию имя пользователя и пароль admin.  Нажмите кнопку OK.
+		<button class="openbtn" onclick="openNav()">&#9776;</button>
 
-Шаг 3 В левой части окна выберите Quick Setup (Быстрая настройка)
-Шаг 5 Выберите PPP over Ethernet (PPPoE) и нажмите кнопку Next (Далее).
-Шаг 6 Введите имя пользователя и пароль учетной записи PPPoE (данная информация предоставляется поставщиком Интернет-услуг) и нажмите кнопку Next (Далее) . Если вы хотите, чтобы подключение было постоянным, не включайте функцию "Dial on demand" (Набор по требованию).
-Шаг 7  Нажмите кнопку Next (Далее).
+		<script>
+			function openNav() {
+				document.getElementById("mySidepanel").style.width = "175px";
+			}
+
+			/* Установите ширину боковой панели в 0 (скройте ее) */
+			function closeNav() {
+				document.getElementById("mySidepanel").style.width = "0";
+			}
+
+		</script>
+
+		<div class="head">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					{% url 'home' as url_home %}
+
+					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
+				</li>
+				<li class="nav-item">
+					{% url 'forum' as url_forum %}
+					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
+				</li>
 
 
-Шаг 8 Проверьте настройки IP и DHCP и нажмите кнопку Next (Далее).
+				{% if request.user.is_authenticated %}
+				<li class="nav-item">
+					{% url 'logout_page' as url_logout_page %}
+
+					<a class="nav-link" href="{{url_logout_page}}">Выйти</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					{% url 'login_page' as url_login_page %}
+					<a class="nav-link {% if url_login_page == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+				</li>
+				<li class="nav-item">
+					{% url 'register_page' as url_register_page %}
+
+					<a class="nav-link {% if url_register_page == request.path %}active{% endif %}" href="{{url_register_page}}">Регистрация</a>
+				</li>
+
+				{% endif %}
+				{{request.user}}
+			</ul>
+		</div>
+
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
+		<script>
+			$(document).ready(function() {
+				$.fakeLoader({
+					timeToHide: 1200,
+					bgColor: "#1abc9c",
+					spinner: "spinner6"
+				});
+			});
+
+		</script>
+	</header>
+	<main>
+<p>Шаг 1 Откройте браузер и в адресной строке укажите IP-адрес устройства (по умолчанию - 192.168.1.1). Нажмите кнопку Enter (Ввод).</p>
+
+<p>Шаг 2 В окне входа в систему введите имя пользователя и пароль. По умолчанию имя пользователя и пароль admin.  Нажмите кнопку OK.</p>
+
+<p>Шаг 3 В левой части окна выберите Quick Setup (Быстрая настройка)</p>
+	<p>Шаг 5 Выберите PPP over Ethernet (PPPoE) и нажмите кнопку Next (Далее).</p>
+		<p>Шаг 6 Введите имя пользователя и пароль учетной записи PPPoE (данная информация предоставляется поставщиком Интернет-услуг) и нажмите кнопку Next (Далее) . Если вы хотите, чтобы подключение было постоянным, не включайте функцию "Dial on demand" (Набор по требованию).</p>
+			<p>Шаг 7  Нажмите кнопку Next (Далее).</p>
 
 
-Шаг 9 Если ваш ADSL маршрутизатор поддерживает беспроводную передачу данных, и вы хотите установить беспроводное подключение, выберите Enable Wireless (Включить беспроводной режим) и нажмите кнопку Next (Далее).
+				<p>Шаг 8 Проверьте настройки IP и DHCP и нажмите кнопку Next (Далее).</p>
 
 
-Шаг 10 Нажмите кнопку Save/Reboot (Сохранить/Перезагрузить), маршрутизатор сохранит измененные настройки и после перезагрузки произведет подключение к Интернет.
+					<p>Шаг 9 Если ваш ADSL маршрутизатор поддерживает беспроводную передачу данных, и вы хотите установить беспроводное подключение, выберите Enable Wireless (Включить беспроводной режим) и нажмите кнопку Next (Далее).</p>
 
+
+						<p>Шаг 10 Нажмите кнопку Save/Reboot (Сохранить/Перезагрузить), маршрутизатор сохранит измененные настройки и после перезагрузки произведет подключение к Интернет.</p>
+						<a class="btn1 {% if tp_link == request.path %}active{% endif %}" href="https://youtu.be/3qg2GyqikNo">TP-Link</a>	
+</main>
 </body>
 </html>

@@ -25,10 +25,36 @@
 	margin: 100px;
 
    }
-   
-.h1_1 {
-	font-family: 'Play';
-	margin-top: -1px;
+   .btn2 {
+	display: inline-block; /* Строчно-блочный элемент */
+	background: #007bff; /* Серый цвет фона */
+	color: #fff; /* Белый цвет текста */
+	padding: 1rem 1.5rem; /* Поля вокруг текста */
+	text-decoration: none; /* Убираем подчёркивание */
+	border-radius: 30px; /* Скругляем уголки */
+	left: 960px;
+	top: 420px;
+	text-decoration: none;
+	margin-top: 100px;
+	margin-left: 960px;
+
+   }
+   .btn3{
+	display: inline-block; /* Строчно-блочный элемент */
+	background: #007bff; /* Серый цвет фона */
+	color: #fff; /* Белый цвет текста */
+	padding: 1rem 1.5rem; /* Поля вокруг текста */
+	text-decoration: none; /* Убираем подчёркивание */
+	border-radius: 30px; /* Скругляем уголки */
+	left: 960px;
+	top: 420px;
+	text-decoration: none;
+	margin-top: 100px;
+	margin-left: 660px;
+	margin-right: 100px;
+   }
+.hel {
+	margin-left: 730px;
 }
 .strt_btn{
 width:400px;

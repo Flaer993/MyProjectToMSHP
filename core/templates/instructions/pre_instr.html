@@ -89,10 +89,10 @@
 		</script>
 	</header>
 	<main>
-		<h2>Насколько вы знакомы роутерами?</h2>
+		<h2 class="hel">Выберите уровень инструкции</h2>
 		<div style="margin: auto;">
 			{% url 'hard' as url_hard %}
-			<a class="btn1 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
+			<a class="btn3 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
 			{% url 'mid' as url_mid %}
 	
 			<a class="btn1 {% if url_mid == request.path %}active{% endif %}" href="{{url_mid}}">Упрощенный</a>
