@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% load static %}
 <html class="no-js">
 <!--<![endif]-->
@@ -10,11 +11,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
 	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
 	<link rel="stylesheet" href="{% static 'css/fakeLoader.min.css' %}">
 </head>
 <body>
+    
 	<header>
 		<div class="fakeloader"></div>
 		<div id="mySidepanel" class="sidepanel">
@@ -45,7 +47,6 @@
 
 					<a class="nav-link {% if url_home == request.path %}active{% endif %}" href="{{url_home}}">Главная</a>
 				</li>
-				
 				<li class="nav-item">
 					{% url 'forum' as url_forum %}
 					<a class="nav-link {% if url_forum == request.path %}active{% endif %}" href="{{url_forum}}">Форумы</a>
@@ -71,12 +72,9 @@
 
 				{% endif %}
 				{{request.user}}
-        
 			</ul>
-      <h2>Пройдите пожалуйста опрос</h2>
 		</div>
 
-		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static 'js/fakeLoader.min.js' %}"></script>
 		<script>
@@ -90,109 +88,19 @@
 
 		</script>
 	</header>
-<style>
-.bulgy-radios {
-  width: 38rem;
-  background: #fff;
-  padding: 3rem 0 3rem 5rem;
-  border-radius: 1rem;
-  border-style: solid;
-  border-color:#007bff ;
-  margin-left: 730px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  
-
-  label {
-    display: block;
-    position: relative;
-    height: 1em;
-    padding-left: 4rem;
-    margin-bottom: 1.75rem;
-    cursor: pointer;
-    font-size: 2.5rem;
-    user-select: none;
-    color: #555;
-    letter-spacing: 1px;
-    &:hover input:not(:checked) ~ .radio {
-      opacity: 0.8;
-    }
-  }
-  .label {
-    display: flex;
-    align-items: center;
-    padding-right: 3rem;
-    span {
-      line-height: 1em;
-    }
-  }
-  input {
-    position: absolute;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-    left: -2000px;
-
-    &:checked {
-      ~ .radio {
-        background-color: #0ac07d;
-        transition: background .3s;
-        &::after {
-          opacity: 1;
-        }
-      }
-      ~ .label {
-        color: #0bae72;
-        span {
-          animation: bulge .5s forwards;
-        }
-
-        //adjust this if label is going to be more than 20 chars
-        @for $i from 1 to 20 {
-          span:nth-child(#{$i}) { animation-delay: $i * 0.025s; }
-        }
-      }
-    }
-  }
-}
-</style>
-    <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
-  <h2 id="bulgy-radios-label">Насколько вы знакомы роутерами?</h2>
-  <label>
-    <input type="radio" name="userExperienceOptions" checked />
-    <span class="radio"></span>
-    <span class="label">Отлично (часто настраиваю)</span>
-  </label>
-  <label>
-    <input type="radio" name="userExperienceOptions" />
-    <span class="radio"></span>
-      <span class="label">Нормально (пару раз настривал)</span>
-  </label>
-  <label>
-    <input type="radio" name="userExperienceOptions" />
-    <span class="radio"></span>
-    <span class="label">Плохо (никогда не имел дела с роутерами)</span>
-  </label>
-</div>
-
-<div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
-  <h2 id="bulgy-radios-label">Выберите своё устройство</h2>
-  <select id="selectvalue">
-
-    <option>MGTS</option>
-    <option>ASUS</option>
-    <option>Keenetic</option>
-    <option>Netis</option>
-    <option>Rostelecom</option>
-    <option>Mikro-Tik</option>
-    <option>Hyawei</option>
-    <option>TP-Link</option>
-    <option>Xiaomi</option>
-    
-    </select>
-
-</div>
-    <input type="submit" value="Подтвердить" class='btn1'><a href=""></a>
+	<main>
+		<h2 class="hel">Выберите уровень инструкции</h2>
+		<div style="margin: auto;">
+			{% url 'hard' as url_hard %}
+			<a class="btn3 {% if url_hard == request.path %}active{% endif %}" href="{{url_hard}}">Обычный</a>
+			{% url 'mid' as url_mid %}
+	
+			<a class="btn1 {% if url_mid == request.path %}active{% endif %}" href="{{url_mid}}">Упрощенный</a>
+			{% url 'low' as url_low %}
+	
+			<a class="btn1 {% if url_low == request.path %}active{% endif %}" href="{{url_low}}">Легкий</a>
+			</div>
+	</main>
 
 </body>
 </html>

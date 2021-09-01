@@ -28,18 +28,38 @@
    }
    .btn2 {
 	display: inline-block; /* Строчно-блочный элемент */
-	background: #007bff; /* Серый цвет фона */
+	background: #00ffa6; /* Серый цвет фона */
 	color: #fff; /* Белый цвет текста */
 	padding: 1rem 1.5rem; /* Поля вокруг текста */
 	text-decoration: none; /* Убираем подчёркивание */
 	border-radius: 30px; /* Скругляем уголки */
 	left: 960px;
 	top: 420px;
-	text-decoration: none;
 	margin-top: 100px;
-	margin-left: 560px;
+	margin-left: 960px;
+   }
+   .btn2:hover{
+	display: inline-block; /* Строчно-блочный элемент */
+	background: #00ffa6; /* Серый цвет фона */
+	color: #fff; /* Белый цвет текста */
+	padding: auto; /* Поля вокруг текста */
+	text-decoration: none; /* Убираем подчёркивание */
+	border-radius: 30px; /* Скругляем уголки */
+	left: 960px;
+	top: 420px;
+	margin-top: 100px;
+	margin-left: 960px;
+	
 
    }
+   a{
+	   text-decoration: none;
+   }
+   a:hover{
+	   text-decoration:  none;
+	   color:black;
+   }
+
    .btn3{
 	display: inline-block; /* Строчно-блочный элемент */
 	background: #007bff; /* Серый цвет фона */
@@ -330,7 +350,7 @@ margin:auto;
 	margin-top: 49px;
 	left: 0;
 	border-radius: 10px;
-	background-color: #007bff;
+	background-color: #00ffb3;
 	/* Черный */
 	overflow-x: hidden;
 	/* Отключить горизонтальную прокрутку */
@@ -371,7 +391,7 @@ margin:auto;
 	margin-top: 0px;
 	top: 200px;
 	left:20px;
-	background-color: #007bff;
+	background-color: #00ffa6;
 	color: white;
 	padding: 10px 15px;
 	border: none;
